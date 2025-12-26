@@ -25,8 +25,6 @@ namespace ClientSimulator_BL.Manager
             if (naam.Length < 2)
                 throw new ArgumentException("Achternaam moet minstens 2 karakters bevatten");
 
-            if (naam.Length > 50)
-                throw new ArgumentException("Achternaam mag maximum 50 karakters bevatten");
 
             // Controleer op ongeldige karakters
             if (naam.Contains("@") || naam.Contains("#") || naam.Contains("$") ||

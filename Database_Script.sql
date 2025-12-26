@@ -26,7 +26,7 @@ GO
 -- =====================================================
 CREATE TABLE Voornaam (
     VoornaamId INT IDENTITY(1,1) PRIMARY KEY,
-    Naam NVARCHAR(50) NOT NULL,
+    Naam NVARCHAR(250) NOT NULL,
     Geslacht CHAR(1) NOT NULL CHECK (Geslacht IN ('M', 'F')),
     Frequentie INT NOT NULL DEFAULT 1,
     LandId INT NOT NULL,
@@ -43,7 +43,7 @@ GO
 -- =====================================================
 CREATE TABLE Achternaam (
     AchternaamId INT IDENTITY(1,1) PRIMARY KEY,
-    Naam NVARCHAR(50) NOT NULL,
+    Naam NVARCHAR(250) NOT NULL,
     Frequentie INT NOT NULL DEFAULT 1,
     LandId INT NOT NULL,
 
@@ -59,7 +59,7 @@ GO
 -- =====================================================
 CREATE TABLE Gemeente (
     GemeenteId INT IDENTITY(1,1) PRIMARY KEY,
-    Naam NVARCHAR(100) NOT NULL,
+    Naam NVARCHAR(250) NOT NULL,
     LandId INT NOT NULL,
 
     FOREIGN KEY (LandId) REFERENCES Land(LandId) ON DELETE CASCADE,
@@ -75,7 +75,7 @@ GO
 CREATE TABLE Straat (
     StraatId INT IDENTITY(1,1) PRIMARY KEY,
     GemeenteId INT NOT NULL,
-    Naam NVARCHAR(100) NOT NULL,
+    Naam NVARCHAR(250) NOT NULL,
     HighwayType NVARCHAR(50) NOT NULL,
 
     FOREIGN KEY (GemeenteId) REFERENCES Gemeente(GemeenteId) ON DELETE CASCADE,

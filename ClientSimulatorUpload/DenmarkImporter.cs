@@ -187,6 +187,20 @@ namespace ClientSimulatorUpload
                     string straat = Normalizer.Clean(row[1]);
                     string wegtype = row[2].Trim().ToLower();
 
+                    // Skip "(unknown)" gemeenten volgens opdracht
+                    if (gemeente.Equals("(unknown)", StringComparison.OrdinalIgnoreCase) ||
+                        gemeente.Equals("unknown", StringComparison.OrdinalIgnoreCase))
+                    {
+                        overgeslagen++;
+                        continue;
+                    }
+
+                    // Verwijder "Kommune" van gemeente naam volgens opdracht
+                    if (gemeente.EndsWith(" Kommune", StringComparison.OrdinalIgnoreCase))
+                    {
+                        gemeente = gemeente.Substring(0, gemeente.Length - " Kommune".Length).Trim();
+                    }
+
                     if (_gemeenteMgr.IsOngeldigeGemeente(gemeente)) { overgeslagen++; continue; }
                     if (_straatMgr.IsOngeldigeStraat(straat)) { overgeslagen++; continue; }
                     if (!_straatMgr.IsGeldigWegtype(wegtype)) { overgeslagen++; continue; }

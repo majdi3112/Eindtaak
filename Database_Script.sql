@@ -86,10 +86,30 @@ CREATE TABLE Straat (
 GO
 
 -- =====================================================
--- 6. PERSOON TABLE (for simulation results)
+-- 6. SIMULATIEINSTELLINGEN TABLE (for simulation settings)
+-- =====================================================
+CREATE TABLE SimulatieInstellingen (
+    SimulatieId INT IDENTITY(1,1) PRIMARY KEY,
+    LandId INT NOT NULL,
+    AantalKlanten INT NOT NULL,
+    MinLeeftijd INT NOT NULL,
+    MaxLeeftijd INT NOT NULL,
+    Opdrachtgever NVARCHAR(100) NOT NULL,
+    MaxHuisnummer INT NOT NULL DEFAULT 999,
+    PercentageLetters INT NOT NULL DEFAULT 10,
+    PercentageBusnummer INT NOT NULL DEFAULT 30,
+    SimulatieDatum DATETIME2 NOT NULL DEFAULT GETDATE(),
+    
+    FOREIGN KEY (LandId) REFERENCES Land(LandId) ON DELETE CASCADE
+);
+GO
+
+-- =====================================================
+-- 7. PERSOON TABLE (for simulation results)
 -- =====================================================
 CREATE TABLE Persoon (
     PersoonId INT IDENTITY(1,1) PRIMARY KEY,
+    SimulatieId INT NOT NULL,
     Voornaam NVARCHAR(50) NOT NULL,
     Achternaam NVARCHAR(50) NOT NULL,
     Geslacht CHAR(1) NOT NULL CHECK (Geslacht IN ('M', 'F')),
@@ -101,7 +121,9 @@ CREATE TABLE Persoon (
     Opdrachtgever NVARCHAR(100) NOT NULL,
     GeboorteDatum DATE NOT NULL,
     HuidigeLeeftijd INT NOT NULL,
-    SimulatieDatum DATETIME2 NOT NULL DEFAULT GETDATE()
+    SimulatieDatum DATETIME2 NOT NULL DEFAULT GETDATE(),
+    
+    FOREIGN KEY (SimulatieId) REFERENCES SimulatieInstellingen(SimulatieId) ON DELETE CASCADE
 );
 GO
 

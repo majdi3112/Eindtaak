@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using ClientSimulator_BL.Model;
 
 namespace ClientSimulator_BL.Interfaces
@@ -5,6 +6,7 @@ namespace ClientSimulator_BL.Interfaces
     public interface IPersoonRepository
     {
         void Insert(Persoon persoon);
+        List<Persoon> GetBySimulatieId(int simulatieId);
 
         // Legacy methods - these should not be used anymore
         Voornaam GetRandomVoornaam(int landId);

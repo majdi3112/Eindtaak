@@ -8,6 +8,7 @@ namespace ClientSimulator_BL.Model
 {
     public class Persoon
     {
+        public int SimulatieId { get; set; }
         public string Voornaam { get; set; }
         public string Achternaam { get; set; }
         public string Geslacht { get; set; }

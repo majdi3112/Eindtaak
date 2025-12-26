@@ -24,10 +24,11 @@ namespace ClientSimulatorUpload
         {
             _landId = landId;
 
-            _voornaamMgr = new VoornaamManager(new VoornaamRepository());
-            _achternaamMgr = new AchternaamManager(new AchternaamRepository());
-            _gemeenteMgr = new GemeenteManager(new GemeenteRepository());
-            _straatMgr = new StraatManager(new StraatRepository());
+            // Gebruik dezelfde repository instances die als fields zijn gedeclareerd
+            _voornaamMgr = new VoornaamManager(_voornaamRepo);
+            _achternaamMgr = new AchternaamManager(_achternaamRepo);
+            _gemeenteMgr = new GemeenteManager(_gemeenteRepo);
+            _straatMgr = new StraatManager(_straatRepo);
         }
 
         public void Import()

@@ -6,6 +6,7 @@ namespace ClientSimulator_BL.Model
     {
         public int TotaalKlanten { get; set; }
         public double GemiddeldeLeeftijd { get; set; }
+        public double GemiddeldeLeeftijdHuidigeDatum { get; set; }
         public int MinimumLeeftijd { get; set; }
         public int MaximumLeeftijd { get; set; }
         public Persoon JongsteKlant { get; set; }
@@ -13,6 +14,7 @@ namespace ClientSimulator_BL.Model
         public List<NaamFrequentie> TopVoornamen { get; set; } = new();
         public List<NaamFrequentie> TopAchternamen { get; set; } = new();
         public List<GemeenteVerdeling> GemeenteVerdeling { get; set; } = new();
+        public SimulatieInstellingen Instellingen { get; set; }
     }
 
     public class NaamFrequentie
@@ -26,5 +28,6 @@ namespace ClientSimulator_BL.Model
         public string GemeenteNaam { get; set; }
         public int AantalKlanten { get; set; }
         public double Percentage { get; set; }
+        public int AantalStraten { get; set; }
     }
 }

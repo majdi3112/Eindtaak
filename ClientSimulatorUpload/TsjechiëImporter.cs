@@ -9,8 +9,13 @@ namespace ClientSimulatorUpload
 {
     public class TsjechiëImporter
     {
+        private readonly VoornaamRepository _voornaamRepo;
+        private readonly AchternaamRepository _achternaamRepo;
         private readonly GemeenteRepository _gemeenteRepo;
         private readonly StraatRepository _straatRepo;
+
+        private readonly VoornaamManager _voornaamMgr;
+        private readonly AchternaamManager _achternaamMgr;
         private readonly GemeenteManager _gemeenteMgr;
         private readonly StraatManager _straatMgr;
 
@@ -20,8 +25,13 @@ namespace ClientSimulatorUpload
         {
             _landId = landId;
 
+            _voornaamRepo = new VoornaamRepository();
+            _achternaamRepo = new AchternaamRepository();
             _gemeenteRepo = new GemeenteRepository();
             _straatRepo = new StraatRepository();
+
+            _voornaamMgr = new VoornaamManager(_voornaamRepo);
+            _achternaamMgr = new AchternaamManager(_achternaamRepo);
             _gemeenteMgr = new GemeenteManager(_gemeenteRepo);
             _straatMgr = new StraatManager(_straatRepo);
         }
@@ -47,6 +57,14 @@ namespace ClientSimulatorUpload
                 return;
             }
 
+            // Importeer voornamen
+            Console.WriteLine("→ Voornamen importeren...");
+            ImportVoornamen(data);
+
+            // Importeer achternamen
+            Console.WriteLine("→ Achternamen importeren...");
+            ImportAchternamen(data);
+
             // Importeer gemeenten
             Console.WriteLine("→ Gemeenten importeren...");
             ImportGemeenten(data);
@@ -56,6 +74,152 @@ namespace ClientSimulatorUpload
             ImportStraten(data);
 
             Console.WriteLine("Tsjechië ✓");
+        }
+
+        private void ImportVoornamen(CzechLocale data)
+        {
+            int success = 0;
+            int skipped = 0;
+            int failed = 0;
+
+            // Mannennamen
+            if (data.name?.male_first_name != null)
+            {
+                foreach (var raw in data.name.male_first_name)
+                {
+                    try
+                    {
+                        if (string.IsNullOrWhiteSpace(raw))
+                        {
+                            skipped++;
+                            continue;
+                        }
+
+                        string naam = Normalizer.Clean(raw);
+                        if (_voornaamRepo.Exists(naam, "M", _landId))
+                        {
+                            skipped++;
+                            continue;
+                        }
+
+                        _voornaamMgr.ValideerVoornaam(naam);
+                        _voornaamRepo.Insert(naam, "M", 1, _landId);
+                        success++;
+                    }
+                    catch (Exception ex)
+                    {
+                        failed++;
+                        Console.WriteLine($"❌ Fout bij voornaam '{raw}': {ex.Message}");
+                    }
+                }
+            }
+
+            // Vrouwennamen
+            if (data.name?.female_first_name != null)
+            {
+                foreach (var raw in data.name.female_first_name)
+                {
+                    try
+                    {
+                        if (string.IsNullOrWhiteSpace(raw))
+                        {
+                            skipped++;
+                            continue;
+                        }
+
+                        string naam = Normalizer.Clean(raw);
+                        if (_voornaamRepo.Exists(naam, "F", _landId))
+                        {
+                            skipped++;
+                            continue;
+                        }
+
+                        _voornaamMgr.ValideerVoornaam(naam);
+                        _voornaamRepo.Insert(naam, "F", 1, _landId);
+                        success++;
+                    }
+                    catch (Exception ex)
+                    {
+                        failed++;
+                        Console.WriteLine($"❌ Fout bij voornaam '{raw}': {ex.Message}");
+                    }
+                }
+            }
+
+            Console.WriteLine($"   Voornamen - ✔: {success}, ⏭: {skipped}, ❌: {failed}");
+        }
+
+        private void ImportAchternamen(CzechLocale data)
+        {
+            int success = 0;
+            int skipped = 0;
+            int failed = 0;
+
+            // Mannen achternamen
+            if (data.name?.male_last_name != null)
+            {
+                foreach (var raw in data.name.male_last_name)
+                {
+                    try
+                    {
+                        if (string.IsNullOrWhiteSpace(raw))
+                        {
+                            skipped++;
+                            continue;
+                        }
+
+                        string naam = Normalizer.Clean(raw);
+                        if (_achternaamRepo.Exists(naam, _landId))
+                        {
+                            skipped++;
+                            continue;
+                        }
+
+                        _achternaamMgr.ValideerAchternaam(naam);
+                        _achternaamRepo.Insert(naam, 1, _landId);
+                        success++;
+                    }
+                    catch (Exception ex)
+                    {
+                        failed++;
+                        Console.WriteLine($"❌ Fout bij achternaam '{raw}': {ex.Message}");
+                    }
+                }
+            }
+
+            // Vrouwen achternamen
+            if (data.name?.female_last_name != null)
+            {
+                foreach (var raw in data.name.female_last_name)
+                {
+                    try
+                    {
+                        if (string.IsNullOrWhiteSpace(raw))
+                        {
+                            skipped++;
+                            continue;
+                        }
+
+                        string naam = Normalizer.Clean(raw);
+                        if (_achternaamRepo.Exists(naam, _landId))
+                        {
+                            skipped++;
+                            continue;
+                        }
+
+                        _achternaamMgr.ValideerAchternaam(naam);
+                        _achternaamRepo.Insert(naam, 1, _landId);
+                        success++;
+                    }
+                    catch (Exception ex)
+                    {
+                        failed++;
+                        Console.WriteLine($"❌ Fout bij achternaam '{raw}': {ex.Message}");
+                    }
+                }
+            }
+
+            Console.WriteLine($"   Achternamen - ✔: {success}, ⏭: {skipped}, ❌: {failed}");
         }
 
         private void ImportGemeenten(CzechLocale data)
@@ -151,17 +315,26 @@ namespace ClientSimulatorUpload
             Console.WriteLine($"   Straten - ✔: {success}, ⏭: {skipped}, ❌: {failed}");
         }
 
-        // DTO’s
+        // DTO's
         private class CzechLocale
         {
             public string title { get; set; }
             public Address address { get; set; }
+            public Names name { get; set; }
         }
 
         private class Address
         {
             public List<string> city_name { get; set; }
             public List<string> street { get; set; }
+        }
+
+        private class Names
+        {
+            public List<string> male_first_name { get; set; }
+            public List<string> female_first_name { get; set; }
+            public List<string> male_last_name { get; set; }
+            public List<string> female_last_name { get; set; }
         }
     }
 }

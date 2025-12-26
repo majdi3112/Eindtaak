@@ -36,7 +36,13 @@ namespace ClientSimulatorUtils.Services
                     },
                     topFirstNames = stats.TopVoornamen,
                     topLastNames = stats.TopAchternamen,
-                    municipalityDistribution = stats.GemeenteVerdeling
+                    municipalityDistribution = stats.GemeenteVerdeling.Select(g => new
+                    {
+                        gemeenteNaam = g.GemeenteNaam,
+                        aantalKlanten = g.AantalKlanten,
+                        percentage = g.Percentage,
+                        aantalStraten = g.AantalStraten
+                    })
                 },
                 customers = personen.Select(p => new
                 {
@@ -86,6 +92,7 @@ namespace ClientSimulatorUtils.Services
             sb.AppendLine();
             sb.AppendLine("=== LEEFTIJD ANALYSE ===");
             sb.AppendLine($"Gemiddelde leeftijd bij simulatie: {stats.GemiddeldeLeeftijd:F1} jaar");
+            sb.AppendLine($"Gemiddelde leeftijd op huidige datum: {stats.GemiddeldeLeeftijdHuidigeDatum:F1} jaar");
             sb.AppendLine($"Minimum leeftijd: {stats.MinimumLeeftijd} jaar");
             sb.AppendLine($"Maximum leeftijd: {stats.MaximumLeeftijd} jaar");
             sb.AppendLine($"Jongste klant: {stats.JongsteKlant?.Voornaam} {stats.JongsteKlant?.Achternaam} ({stats.JongsteKlant?.Leeftijd} jaar)");
@@ -106,7 +113,7 @@ namespace ClientSimulatorUtils.Services
             sb.AppendLine("=== GEMEENTEN (Top 10) ===");
             foreach (var gemeente in stats.GemeenteVerdeling)
             {
-                sb.AppendLine($"{gemeente.GemeenteNaam}: {gemeente.AantalKlanten} klanten ({gemeente.Percentage:F1}%)");
+                sb.AppendLine($"{gemeente.GemeenteNaam}: {gemeente.AantalKlanten} klanten ({gemeente.Percentage:F1}%) - {gemeente.AantalStraten} straten");
             }
 
             File.WriteAllText(bestandspad, sb.ToString());

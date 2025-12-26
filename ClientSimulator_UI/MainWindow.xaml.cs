@@ -8,8 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using ClientSimulator_BL.Manager;
 using ClientSimulator_BL.Model;
+using ClientSimulator_DL.Repository;
 using ClientSimulatorUtils.Services;
 using Microsoft.Win32;
 
@@ -131,6 +133,45 @@ namespace ClientSimulator_UI
                     return;
                 }
 
+                // Lees huisnummer instellingen
+                if (!int.TryParse(MaxHuisnummerTextBox.Text, out int maxHuisnummer) || maxHuisnummer <= 0)
+                    maxHuisnummer = 999;
+
+                if (!int.TryParse(PercentageLettersTextBox.Text, out int percentageLetters) || percentageLetters < 0 || percentageLetters > 100)
+                    percentageLetters = 10;
+
+                if (!int.TryParse(BusnummerPercentageTextBox.Text, out int percentageBusnummer) || percentageBusnummer < 0 || percentageBusnummer > 100)
+                    percentageBusnummer = 30;
+
+                // Lees gemeente percentages indien gemeente filter actief is
+                Dictionary<int, double> gemeentePercentages = null;
+                if (GemeenteFilterCheckBox.IsChecked == true && GemeenteListView.ItemsSource != null)
+                {
+                    gemeentePercentages = new Dictionary<int, double>();
+                    
+                    // Wacht tot ListView items gegenereerd zijn
+                    GemeenteListView.UpdateLayout();
+                    
+                    foreach (Gemeente gemeente in GemeenteListView.ItemsSource)
+                    {
+                        var container = GemeenteListView.ItemContainerGenerator.ContainerFromItem(gemeente) as ListViewItem;
+                        if (container != null)
+                        {
+                            // Zoek TextBox in de GridView cell
+                            var textBox = FindVisualChild<TextBox>(container);
+                            if (textBox != null && double.TryParse(textBox.Text, out double percentage))
+                            {
+                                if (percentage > 0)
+                                    gemeentePercentages[gemeente.Id] = percentage;
+                            }
+                        }
+                    }
+
+                    // Als geen percentages zijn ingevuld, gebruik dan geen filter
+                    if (gemeentePercentages.Count == 0)
+                        gemeentePercentages = null;
+                }
+
                 // Disable UI tijdens simulatie
                 StartSimulatieButton.IsEnabled = false;
                 SimulatieProgressBar.Value = 0;
@@ -140,13 +181,17 @@ namespace ClientSimulator_UI
                 // Start simulatie in background
                 await Task.Run(() =>
                 {
-                    _gegenereerdePersonen = _simulatieService.VoerSimulatieUit(landId, aantalKlanten, minLeeftijd, maxLeeftijd, opdrachtgever);
-
-                    // Genereer huisnummers
-                    foreach (var persoon in _gegenereerdePersonen)
-                    {
-                        persoon.Huisnummer = GenereerHuisnummer();
-                    }
+                    _gegenereerdePersonen = _simulatieService.VoerSimulatieUit(
+                        landId, 
+                        aantalKlanten, 
+                        minLeeftijd, 
+                        maxLeeftijd, 
+                        opdrachtgever,
+                        gemeentePercentages,
+                        maxHuisnummer,
+                        percentageLetters,
+                        percentageBusnummer
+                    );
 
                     // Update progress
                     Dispatcher.Invoke(() => SimulatieProgressBar.Value = 100);
@@ -251,27 +296,61 @@ namespace ClientSimulator_UI
                 if (string.IsNullOrWhiteSpace(opdrachtgever))
                     opdrachtgever = null;
 
-                // Voor nu tonen we alleen de gegenereerde dataset
-                // TODO: Implementeer echte dataset opslag en ophaling uit database
+                // Haal datasets op uit database
+                List<SimulatieInstellingen> datasets = new List<SimulatieInstellingen>();
 
-                if (_gegenereerdePersonen.Count > 0)
+                if (landId.HasValue)
                 {
-                    // Maak een dummy dataset object
-                    var dataset = new
-                    {
-                        DatasetId = 1,
-                        Land = SimLandComboBox.SelectedItem?.ToString() ?? "Onbekend",
-                        Opdrachtgever = OpdrachtgeverTextBox.Text,
-                        AanmaakDatum = DateTime.Now.ToString("dd-MM-yyyy HH:mm"),
-                        TotaalKlanten = _gegenereerdePersonen.Count
-                    };
+                    datasets = _simulatieService.GetSimulatiesByLand(landId.Value);
+                }
+                else if (!string.IsNullOrWhiteSpace(opdrachtgever))
+                {
+                    datasets = _simulatieService.GetSimulatiesByOpdrachtgever(opdrachtgever);
+                }
+                else
+                {
+                    // Geen filter - toon alle datasets (laatste 50)
+                    var repo = new SimulatieInstellingenRepository();
+                    datasets = repo.GetAll().Take(50).ToList();
+                }
 
-                    DatasetsListView.ItemsSource = new[] { dataset };
+                if (datasets.Count > 0)
+                {
+                    // Haal land namen op voor display
+                    var landRepo = new LandRepository();
+                    var datasetsMetLandNaam = datasets.Select(d =>
+                    {
+                        try
+                        {
+                            var land = landRepo.GetById(d.LandId);
+                            return new
+                            {
+                                DatasetId = d.SimulatieId,
+                                Land = land?.Naam ?? "Onbekend",
+                                Opdrachtgever = d.Opdrachtgever,
+                                AanmaakDatum = d.SimulatieDatum.ToString("dd-MM-yyyy HH:mm"),
+                                TotaalKlanten = d.AantalKlanten
+                            };
+                        }
+                        catch
+                        {
+                            return new
+                            {
+                                DatasetId = d.SimulatieId,
+                                Land = "Onbekend",
+                                Opdrachtgever = d.Opdrachtgever,
+                                AanmaakDatum = d.SimulatieDatum.ToString("dd-MM-yyyy HH:mm"),
+                                TotaalKlanten = d.AantalKlanten
+                            };
+                        }
+                    }).ToList();
+
+                    DatasetsListView.ItemsSource = datasetsMetLandNaam;
                 }
                 else
                 {
                     DatasetsListView.ItemsSource = null;
-                    MessageBox.Show("Geen datasets gevonden. Voer eerst een simulatie uit.", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Geen datasets gevonden met de opgegeven criteria.", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
             catch (Exception ex)
@@ -290,49 +369,93 @@ namespace ClientSimulator_UI
 
         private void ToonDatasetStatistieken()
         {
-            if (_gegenereerdePersonen.Count == 0)
+            try
             {
-                StatistiekenTextBox.Text = "Geen data beschikbaar";
-                return;
-            }
+                // Haal geselecteerde dataset op
+                dynamic selectedItem = DatasetsListView.SelectedItem;
+                if (selectedItem == null)
+                {
+                    StatistiekenTextBox.Text = "Selecteer eerst een dataset";
+                    return;
+                }
 
-            // Gebruik service voor statistieken
-            _huidigeStatistieken = _simulatieService.BerekenStatistieken(_gegenereerdePersonen);
+                int simulatieId = selectedItem.DatasetId;
 
-            var sb = new StringBuilder();
-            sb.AppendLine("=== DATASET STATISTIEKEN ===");
-            sb.AppendLine($"Dataset ID: 1");
-            sb.AppendLine($"Land: {SimLandComboBox.Text}");
-            sb.AppendLine($"Opdrachtgever: {OpdrachtgeverTextBox.Text}");
-            sb.AppendLine($"Aanmaak datum: {DateTime.Now:dd-MM-yyyy HH:mm:ss}");
-            sb.AppendLine();
+                // Haal instellingen en personen op uit database
+                var instellingenRepo = new SimulatieInstellingenRepository();
+                var instellingen = instellingenRepo.GetById(simulatieId);
 
-            sb.AppendLine("=== KLANTEN OVERZICHT ===");
-            sb.AppendLine($"Totaal aantal klanten: {_huidigeStatistieken.TotaalKlanten}");
-            sb.AppendLine();
+                if (instellingen == null)
+                {
+                    StatistiekenTextBox.Text = "Dataset niet gevonden in database";
+                    return;
+                }
 
-            sb.AppendLine("=== LEEFTIJD ANALYSE ===");
-            sb.AppendLine($"Gemiddelde leeftijd bij simulatie: {_huidigeStatistieken.GemiddeldeLeeftijd:F1} jaar");
-            sb.AppendLine($"Minimum leeftijd: {_huidigeStatistieken.MinimumLeeftijd} jaar");
-            sb.AppendLine($"Maximum leeftijd: {_huidigeStatistieken.MaximumLeeftijd} jaar");
-            if (_huidigeStatistieken.JongsteKlant != null)
-                sb.AppendLine($"Jongste klant: {_huidigeStatistieken.JongsteKlant.Voornaam} {_huidigeStatistieken.JongsteKlant.Achternaam} ({_huidigeStatistieken.JongsteKlant.Leeftijd} jaar)");
-            if (_huidigeStatistieken.OudsteKlant != null)
-                sb.AppendLine($"Oudste klant: {_huidigeStatistieken.OudsteKlant.Voornaam} {_huidigeStatistieken.OudsteKlant.Achternaam} ({_huidigeStatistieken.OudsteKlant.Leeftijd} jaar)");
-            sb.AppendLine();
+                var personen = _simulatieService.GetPersonenBySimulatieId(simulatieId);
 
-            sb.AppendLine("=== VOORNAMEN (Top 10) ===");
-            foreach (var item in _huidigeStatistieken.TopVoornamen)
-            {
-                sb.AppendLine($"{item.Naam}: {item.Aantal} keer");
-            }
-            sb.AppendLine();
+                if (personen.Count == 0)
+                {
+                    StatistiekenTextBox.Text = "Geen personen gevonden voor deze dataset";
+                    return;
+                }
 
-            sb.AppendLine("=== ACHTERNAMEN (Top 10) ===");
-            foreach (var item in _huidigeStatistieken.TopAchternamen)
-            {
-                sb.AppendLine($"{item.Naam}: {item.Aantal} keer");
-            }
+                // Haal land naam op
+                var landRepo = new LandRepository();
+                var land = landRepo.GetById(instellingen.LandId);
+
+                // Bereken statistieken
+                _huidigeStatistieken = _simulatieService.BerekenStatistieken(personen, instellingen);
+                _gegenereerdePersonen = personen; // Update voor export
+
+                var sb = new StringBuilder();
+                sb.AppendLine("=== DATASET STATISTIEKEN ===");
+                sb.AppendLine($"Dataset ID: {instellingen.SimulatieId}");
+                sb.AppendLine($"Land: {land?.Naam ?? "Onbekend"}");
+                sb.AppendLine($"Opdrachtgever: {instellingen.Opdrachtgever}");
+                sb.AppendLine($"Aanmaak datum: {instellingen.SimulatieDatum:dd-MM-yyyy HH:mm:ss}");
+                sb.AppendLine();
+                sb.AppendLine("=== SIMULATIE INSTELLINGEN ===");
+                sb.AppendLine($"Aantal klanten: {instellingen.AantalKlanten}");
+                sb.AppendLine($"Leeftijd bereik: {instellingen.MinLeeftijd} - {instellingen.MaxLeeftijd} jaar");
+                sb.AppendLine($"Max huisnummer: {instellingen.MaxHuisnummer}");
+                sb.AppendLine($"% met letters: {instellingen.PercentageLetters}%");
+                sb.AppendLine($"% busnummer: {instellingen.PercentageBusnummer}%");
+                sb.AppendLine();
+
+                sb.AppendLine("=== KLANTEN OVERZICHT ===");
+                sb.AppendLine($"Totaal aantal klanten: {_huidigeStatistieken.TotaalKlanten}");
+                sb.AppendLine();
+
+                sb.AppendLine("=== LEEFTIJD ANALYSE ===");
+                sb.AppendLine($"Gemiddelde leeftijd bij simulatie: {_huidigeStatistieken.GemiddeldeLeeftijd:F1} jaar");
+                sb.AppendLine($"Gemiddelde leeftijd op huidige datum: {_huidigeStatistieken.GemiddeldeLeeftijdHuidigeDatum:F1} jaar");
+                sb.AppendLine($"Minimum leeftijd: {_huidigeStatistieken.MinimumLeeftijd} jaar");
+                sb.AppendLine($"Maximum leeftijd: {_huidigeStatistieken.MaximumLeeftijd} jaar");
+                if (_huidigeStatistieken.JongsteKlant != null)
+                    sb.AppendLine($"Jongste klant: {_huidigeStatistieken.JongsteKlant.Voornaam} {_huidigeStatistieken.JongsteKlant.Achternaam} ({_huidigeStatistieken.JongsteKlant.Leeftijd} jaar)");
+                if (_huidigeStatistieken.OudsteKlant != null)
+                    sb.AppendLine($"Oudste klant: {_huidigeStatistieken.OudsteKlant.Voornaam} {_huidigeStatistieken.OudsteKlant.Achternaam} ({_huidigeStatistieken.OudsteKlant.Leeftijd} jaar)");
+                sb.AppendLine();
+
+                sb.AppendLine("=== VOORNAMEN (Top 10) ===");
+                foreach (var item in _huidigeStatistieken.TopVoornamen)
+                {
+                    sb.AppendLine($"{item.Naam}: {item.Aantal} keer");
+                }
+                sb.AppendLine();
+
+                sb.AppendLine("=== ACHTERNAMEN (Top 10) ===");
+                foreach (var item in _huidigeStatistieken.TopAchternamen)
+                {
+                    sb.AppendLine($"{item.Naam}: {item.Aantal} keer");
+                }
+                sb.AppendLine();
+
+                sb.AppendLine("=== GEMEENTEN (Top 10) ===");
+                foreach (var gemeente in _huidigeStatistieken.GemeenteVerdeling)
+                {
+                    sb.AppendLine($"{gemeente.GemeenteNaam}: {gemeente.AantalKlanten} klanten ({gemeente.Percentage:F1}%) - {gemeente.AantalStraten} straten");
+                }
             sb.AppendLine();
 
             sb.AppendLine("=== GEMEENTEN (Top 10) ===");
@@ -451,6 +574,25 @@ namespace ClientSimulator_UI
             {
                 MessageBox.Show("Export map bestaat nog niet. Exporteer eerst een dataset.", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
             }
+        }
+
+        // Helper method om visuele children te vinden
+        private static T FindVisualChild<T>(DependencyObject parent) where T : DependencyObject
+        {
+            if (parent == null) return null;
+
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(parent); i++)
+            {
+                var child = VisualTreeHelper.GetChild(parent, i);
+                if (child is T result)
+                    return result;
+
+                var childOfChild = FindVisualChild<T>(child);
+                if (childOfChild != null)
+                    return childOfChild;
+            }
+
+            return null;
         }
     }
 }

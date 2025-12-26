@@ -97,7 +97,10 @@ namespace ClientSimulatorUtils
                     cleaned.Contains("femminile") ||
                     cleaned.Contains("maschile") ||
                     cleaned.Contains("female") ||
-                    cleaned.Contains("male"))
+                    cleaned.Contains("male") ||
+                    cleaned.Contains("kun navne") ||
+                    cleaned.Contains("med tre") ||
+                    cleaned.Contains("forekomster"))
                     continue;
 
                 // Split on tabs

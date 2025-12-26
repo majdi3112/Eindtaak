@@ -68,3 +68,4 @@ C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulatorUpload\obj\Debu
 C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulatorUpload\obj\Debug\net8.0\ClientSimulatorUpload.pdb
 C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulatorUpload\obj\Debug\net8.0\ClientSimulatorUpload.genruntimeconfig.cache
 C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulatorUpload\obj\Debug\net8.0\ref\ClientSimulatorUpload.dll
+C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulatorUpload\obj\Debug\net8.0\ClientSimulatorUpload.sourcelink.json

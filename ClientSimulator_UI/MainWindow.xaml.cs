@@ -10,47 +10,35 @@ using System.Windows;
 using System.Windows.Controls;
 using ClientSimulator_BL.Manager;
 using ClientSimulator_BL.Model;
-using ClientSimulator_DL.Repository;
+using ClientSimulatorUtils.Services;
 using Microsoft.Win32;
 
 namespace ClientSimulator_UI
 {
     public partial class MainWindow : Window
     {
-        // Managers (Business Layer)
-        private readonly PersoonManager _persoonMgr;
-        private readonly VoornaamManager _voornaamMgr;
-        private readonly AchternaamManager _achternaamMgr;
-        private readonly GemeenteManager _gemeenteMgr;
-        private readonly StraatManager _straatMgr;
-
-        // Repositories (Data Layer)
-        private readonly LandRepository _landRepo;
-        private readonly GemeenteRepository _gemeenteRepo;
+        // Services (Business Layer)
+        private readonly LandService _landService;
+        private readonly SimulatieService _simulatieService;
+        private readonly ExportService _exportService;
 
         // Data collections
         private ObservableCollection<Gemeente> _beschikbareGemeenten;
         private List<Persoon> _gegenereerdePersonen;
+        private SimulatieStatistieken _huidigeStatistieken;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            // Initialize managers (business layer)
-            var voornaamRepo = new VoornaamRepository();
-            var achternaamRepo = new AchternaamRepository();
-            _voornaamMgr = new VoornaamManager(voornaamRepo);
-            _achternaamMgr = new AchternaamManager(achternaamRepo);
-            _gemeenteMgr = new GemeenteManager(new GemeenteRepository());
-            _straatMgr = new StraatManager(new StraatRepository());
-            _persoonMgr = new PersoonManager(_voornaamMgr, _achternaamMgr, _gemeenteMgr, _straatMgr);
-
-            // Initialize repositories
-            _landRepo = new LandRepository();
-            _gemeenteRepo = new GemeenteRepository();
+            // Initialize services (business layer)
+            _landService = new LandService();
+            _simulatieService = new SimulatieService();
+            _exportService = new ExportService();
 
             _beschikbareGemeenten = new ObservableCollection<Gemeente>();
             _gegenereerdePersonen = new List<Persoon>();
+            _huidigeStatistieken = new SimulatieStatistieken();
 
             Loaded += MainWindow_Loaded;
         }
@@ -60,16 +48,24 @@ namespace ClientSimulator_UI
         // -----------------------------------------
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            // Vul dropdowns voor simulatie tab
-            SimLandComboBox.ItemsSource = _landRepo.GetAll();
-            ZoekLandComboBox.ItemsSource = _landRepo.GetAll();
+            try
+            {
+                // Vul dropdowns voor simulatie tab
+                var landen = _landService.GetAllLanden();
+                SimLandComboBox.ItemsSource = landen;
+                ZoekLandComboBox.ItemsSource = landen;
 
-            // Stel defaults in
-            SimulatieProgressBar.Value = 0;
-            GemeenteFilterCheckBox.IsChecked = false;
-            GemeenteListView.IsEnabled = false;
+                // Stel defaults in
+                SimulatieProgressBar.Value = 0;
+                GemeenteFilterCheckBox.IsChecked = false;
+                GemeenteListView.IsEnabled = false;
 
-            UpdateSimulatieStatus("Klaar voor simulatie");
+                UpdateSimulatieStatus("Klaar voor simulatie");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Fout bij initialisatie: {ex.Message}", "Fout", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void UpdateSimulatieStatus(string message)
@@ -91,7 +87,7 @@ namespace ClientSimulator_UI
             if (isChecked && SimLandComboBox.SelectedValue != null)
             {
                 int landId = (int)SimLandComboBox.SelectedValue;
-                var gemeenten = _gemeenteRepo.GetByLand(landId);
+                var gemeenten = _simulatieService.GetGemeentenByLand(landId);
                 GemeenteListView.ItemsSource = gemeenten;
             }
         }
@@ -144,18 +140,16 @@ namespace ClientSimulator_UI
                 // Start simulatie in background
                 await Task.Run(() =>
                 {
-                    _gegenereerdePersonen.Clear();
+                    _gegenereerdePersonen = _simulatieService.VoerSimulatieUit(landId, aantalKlanten, minLeeftijd, maxLeeftijd, opdrachtgever);
 
-                    for (int i = 0; i < aantalKlanten; i++)
+                    // Genereer huisnummers
+                    foreach (var persoon in _gegenereerdePersonen)
                     {
-                        var persoon = _persoonMgr.Genereer(landId, minLeeftijd, maxLeeftijd, opdrachtgever);
                         persoon.Huisnummer = GenereerHuisnummer();
-                        _gegenereerdePersonen.Add(persoon);
-
-                        // Update progress
-                        int progress = (i + 1) * 100 / aantalKlanten;
-                        Dispatcher.Invoke(() => SimulatieProgressBar.Value = progress);
                     }
+
+                    // Update progress
+                    Dispatcher.Invoke(() => SimulatieProgressBar.Value = 100);
                 });
 
                 UpdateSimulatieStatus($"Simulatie voltooid! {aantalKlanten} personen gegenereerd.");
@@ -302,6 +296,9 @@ namespace ClientSimulator_UI
                 return;
             }
 
+            // Gebruik service voor statistieken
+            _huidigeStatistieken = _simulatieService.BerekenStatistieken(_gegenereerdePersonen);
+
             var sb = new StringBuilder();
             sb.AppendLine("=== DATASET STATISTIEKEN ===");
             sb.AppendLine($"Dataset ID: 1");
@@ -311,58 +308,37 @@ namespace ClientSimulator_UI
             sb.AppendLine();
 
             sb.AppendLine("=== KLANTEN OVERZICHT ===");
-            sb.AppendLine($"Totaal aantal klanten: {_gegenereerdePersonen.Count}");
+            sb.AppendLine($"Totaal aantal klanten: {_huidigeStatistieken.TotaalKlanten}");
             sb.AppendLine();
-
-            // Leeftijd statistieken
-            var leeftijdGemiddelde = _gegenereerdePersonen.Average(p => p.Leeftijd);
-            var huidigeLeeftijdGemiddelde = _gegenereerdePersonen.Average(p => p.HuidigeLeeftijd);
-            var minLeeftijd = _gegenereerdePersonen.Min(p => p.Leeftijd);
-            var maxLeeftijd = _gegenereerdePersonen.Max(p => p.Leeftijd);
 
             sb.AppendLine("=== LEEFTIJD ANALYSE ===");
-            sb.AppendLine($"Gemiddelde leeftijd bij simulatie: {leeftijdGemiddelde:F1} jaar");
-            sb.AppendLine($"Gemiddelde huidige leeftijd: {huidigeLeeftijdGemiddelde:F1} jaar");
-            sb.AppendLine($"Jongste klant: {minLeeftijd} jaar");
-            sb.AppendLine($"Oudste klant: {maxLeeftijd} jaar");
+            sb.AppendLine($"Gemiddelde leeftijd bij simulatie: {_huidigeStatistieken.GemiddeldeLeeftijd:F1} jaar");
+            sb.AppendLine($"Minimum leeftijd: {_huidigeStatistieken.MinimumLeeftijd} jaar");
+            sb.AppendLine($"Maximum leeftijd: {_huidigeStatistieken.MaximumLeeftijd} jaar");
+            if (_huidigeStatistieken.JongsteKlant != null)
+                sb.AppendLine($"Jongste klant: {_huidigeStatistieken.JongsteKlant.Voornaam} {_huidigeStatistieken.JongsteKlant.Achternaam} ({_huidigeStatistieken.JongsteKlant.Leeftijd} jaar)");
+            if (_huidigeStatistieken.OudsteKlant != null)
+                sb.AppendLine($"Oudste klant: {_huidigeStatistieken.OudsteKlant.Voornaam} {_huidigeStatistieken.OudsteKlant.Achternaam} ({_huidigeStatistieken.OudsteKlant.Leeftijd} jaar)");
             sb.AppendLine();
-
-            // Naam frequenties
-            var voornaamFrequenties = _gegenereerdePersonen
-                .GroupBy(p => p.Voornaam)
-                .OrderByDescending(g => g.Count())
-                .Take(10);
 
             sb.AppendLine("=== VOORNAMEN (Top 10) ===");
-            foreach (var group in voornaamFrequenties)
+            foreach (var item in _huidigeStatistieken.TopVoornamen)
             {
-                sb.AppendLine($"{group.Key}: {group.Count()} keer");
+                sb.AppendLine($"{item.Naam}: {item.Aantal} keer");
             }
             sb.AppendLine();
-
-            var achternaamFrequenties = _gegenereerdePersonen
-                .GroupBy(p => p.Achternaam)
-                .OrderByDescending(g => g.Count())
-                .Take(10);
 
             sb.AppendLine("=== ACHTERNAMEN (Top 10) ===");
-            foreach (var group in achternaamFrequenties)
+            foreach (var item in _huidigeStatistieken.TopAchternamen)
             {
-                sb.AppendLine($"{group.Key}: {group.Count()} keer");
+                sb.AppendLine($"{item.Naam}: {item.Aantal} keer");
             }
             sb.AppendLine();
 
-            // Gemeente verdeling
-            var gemeenteVerdeling = _gegenereerdePersonen
-                .GroupBy(p => p.Gemeente)
-                .OrderByDescending(g => g.Count())
-                .Take(10);
-
             sb.AppendLine("=== GEMEENTEN (Top 10) ===");
-            foreach (var group in gemeenteVerdeling)
+            foreach (var gemeente in _huidigeStatistieken.GemeenteVerdeling)
             {
-                double percentage = (double)group.Count() / _gegenereerdePersonen.Count * 100;
-                sb.AppendLine($"{group.Key}: {group.Count()} klanten ({percentage:F1}%)");
+                sb.AppendLine($"{gemeente.GemeenteNaam}: {gemeente.AantalKlanten} klanten ({gemeente.Percentage:F1}%)");
             }
 
             StatistiekenTextBox.Text = sb.ToString();
@@ -405,7 +381,7 @@ namespace ClientSimulator_UI
                     bestandsnaam = "export_dataset";
 
                 // Export uitvoeren
-                ExporteerDataset(format, separator, bestandsnaam);
+                ExporteerDataset(format, separator, bestandsnaam, _huidigeStatistieken);
 
                 MessageBox.Show("Export voltooid!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
             }
@@ -415,54 +391,29 @@ namespace ClientSimulator_UI
             }
         }
 
-        private void ExporteerDataset(string format, string separator, string bestandsnaam)
+        private void ExporteerDataset(string format, string separator, string bestandsnaam, SimulatieStatistieken stats)
         {
             string exportDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Exports");
             Directory.CreateDirectory(exportDir);
 
-            var timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+            string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
 
             if (format == "json")
             {
                 // Export als JSON
                 string jsonPath = Path.Combine(exportDir, $"{bestandsnaam}_{timestamp}.json");
-
-                var exportData = new
-                {
-                    metadata = new
-                    {
-                        exportDate = DateTime.Now,
-                        totalCustomers = _gegenereerdePersonen.Count,
-                        country = SimLandComboBox.Text,
-                        customer = OpdrachtgeverTextBox.Text
-                    },
-                    customers = _gegenereerdePersonen.Select(p => new
-                    {
-                        firstName = p.Voornaam,
-                        lastName = p.Achternaam,
-                        gender = p.Geslacht,
-                        age = p.Leeftijd,
-                        street = p.Straat,
-                        houseNumber = p.Huisnummer,
-                        city = p.Gemeente,
-                        country = p.Land,
-                        customer = p.Opdrachtgever,
-                        birthDate = p.GeboorteDatum,
-                        currentAge = p.HuidigeLeeftijd
-                    })
-                };
-
-                string json = System.Text.Json.JsonSerializer.Serialize(exportData, new System.Text.Json.JsonSerializerOptions { WriteIndented = true });
-                File.WriteAllText(jsonPath, json);
-
+                _exportService.ExporteerNaarJson(_gegenereerdePersonen, stats, jsonPath);
                 ExportLogTextBox.Text = $"JSON bestand geëxporteerd: {jsonPath}\n" + ExportLogTextBox.Text;
             }
             else if (format == "combined_text")
             {
                 // Export als 1 tekstbestand (data + statistieken)
                 string txtPath = Path.Combine(exportDir, $"{bestandsnaam}_{timestamp}.txt");
-                var content = GenereerExportContent(separator, includeStats: true);
-                File.WriteAllText(txtPath, content);
+                _exportService.ExporteerNaarCsv(_gegenereerdePersonen, stats, txtPath, separator);
+
+                // Voeg statistieken toe aan hetzelfde bestand
+                string statsContent = "\n\n" + StatistiekenTextBox.Text;
+                File.AppendAllText(txtPath, statsContent);
 
                 ExportLogTextBox.Text = $"Tekstbestand geëxporteerd: {txtPath}\n" + ExportLogTextBox.Text;
             }
@@ -473,50 +424,15 @@ namespace ClientSimulator_UI
                 string statsPath = Path.Combine(exportDir, $"{bestandsnaam}_stats_{timestamp}.txt");
 
                 // Data bestand
-                var dataContent = GenereerExportContent(separator, includeStats: false);
-                File.WriteAllText(dataPath, dataContent);
+                _exportService.ExporteerNaarCsv(_gegenereerdePersonen, stats, dataPath, separator);
 
                 // Statistieken bestand
-                var statsContent = StatistiekenTextBox.Text;
-                File.WriteAllText(statsPath, statsContent);
+                _exportService.ExporteerStatistieken(stats, statsPath);
 
                 ExportLogTextBox.Text = $"Data bestand: {dataPath}\nStatistieken bestand: {statsPath}\n" + ExportLogTextBox.Text;
             }
         }
 
-        private string GenereerExportContent(string separator, bool includeStats)
-        {
-            var sb = new StringBuilder();
-
-            if (includeStats)
-            {
-                sb.AppendLine("=== EXPORT METADATA ===");
-                sb.AppendLine($"Export datum: {DateTime.Now:dd-MM-yyyy HH:mm:ss}");
-                sb.AppendLine($"Land: {SimLandComboBox.Text}");
-                sb.AppendLine($"Opdrachtgever: {OpdrachtgeverTextBox.Text}");
-                sb.AppendLine($"Totaal klanten: {_gegenereerdePersonen.Count}");
-                sb.AppendLine();
-                sb.AppendLine("=== KLANTEN DATA ===");
-            }
-
-            // CSV header
-            sb.AppendLine($"Voornaam{separator}Achternaam{separator}Geslacht{separator}Leeftijd{separator}Straat{separator}Huisnummer{separator}Gemeente{separator}Land{separator}Opdrachtgever{separator}Geboortedatum{separator}HuidigeLeeftijd");
-
-            // Data rijen
-            foreach (var persoon in _gegenereerdePersonen)
-            {
-                sb.AppendLine($"{persoon.Voornaam}{separator}{persoon.Achternaam}{separator}{persoon.Geslacht}{separator}{persoon.Leeftijd}{separator}{persoon.Straat}{separator}{persoon.Huisnummer}{separator}{persoon.Gemeente}{separator}{persoon.Land}{separator}{persoon.Opdrachtgever}{separator}{persoon.GeboorteDatum:dd-MM-yyyy}{separator}{persoon.HuidigeLeeftijd}");
-            }
-
-            if (includeStats)
-            {
-                sb.AppendLine();
-                sb.AppendLine("=== STATISTIEKEN ===");
-                sb.AppendLine(StatistiekenTextBox.Text);
-            }
-
-            return sb.ToString();
-        }
 
         private void OpenExportMapButton_Click(object sender, RoutedEventArgs e)
         {

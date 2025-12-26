@@ -13,3 +13,4 @@ C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulator_DL\obj\Debug\n
 C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulator_DL\obj\Debug\net8.0\refint\ClientSimulator_DL.dll
 C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulator_DL\obj\Debug\net8.0\ClientSimulator_DL.pdb
 C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulator_DL\obj\Debug\net8.0\ref\ClientSimulator_DL.dll
+C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulator_DL\obj\Debug\net8.0\ClientSimulator_DL.sourcelink.json

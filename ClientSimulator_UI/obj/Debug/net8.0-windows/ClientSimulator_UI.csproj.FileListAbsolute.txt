@@ -71,3 +71,4 @@ C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulator_UI\obj\Debug\n
 C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulator_UI\obj\Debug\net8.0-windows\ClientSimulator_UI.pdb
 C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulator_UI\obj\Debug\net8.0-windows\ClientSimulator_UI.genruntimeconfig.cache
 C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulator_UI\obj\Debug\net8.0-windows\ref\ClientSimulator_UI.dll
+C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulator_UI\obj\Debug\net8.0-windows\ClientSimulator_UI.sourcelink.json

@@ -9,3 +9,4 @@ C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulator_BL\obj\Debug\n
 C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulator_BL\obj\Debug\net8.0\refint\ClientSimulator_BL.dll
 C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulator_BL\obj\Debug\net8.0\ClientSimulator_BL.pdb
 C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulator_BL\obj\Debug\net8.0\ref\ClientSimulator_BL.dll
+C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulator_BL\obj\Debug\net8.0\ClientSimulator_BL.sourcelink.json

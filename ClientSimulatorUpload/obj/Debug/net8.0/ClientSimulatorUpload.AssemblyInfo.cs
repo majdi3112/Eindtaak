@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ClientSimulatorUpload")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ec33610344b5431367db5081699048351cc277ad")]
 [assembly: System.Reflection.AssemblyProductAttribute("ClientSimulatorUpload")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ClientSimulatorUpload")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

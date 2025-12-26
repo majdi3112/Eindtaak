@@ -106,10 +106,5 @@ CREATE TABLE Persoon (
 GO
 
 -- =====================================================
--- INSERT COUNTRIES (for all supported countries)
+-- Note: Countries will be inserted automatically by the upload process
 -- =====================================================
-
--- European countries supported by the application
-INSERT INTO Land (Naam) VALUES
-('België'), ('Denemarken'), ('Finland'), ('Spanje'), ('Zweden'), ('Zwitserland'),
-('Polen'), ('Tsjechië'), ('Nederland'), ('Duitsland'), ('Frankrijk'), ('Italië');

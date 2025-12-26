@@ -36,6 +36,27 @@ namespace ClientSimulator_DL.Repository
             return (int)insertCmd.ExecuteScalar();
         }
 
+        public Land GetById(int landId)
+        {
+            using var conn = DbConnectionFactory.Create();
+            conn.Open();
+
+            var cmd = new SqlCommand("SELECT LandId, Naam FROM Land WHERE LandId = @landId", conn);
+            cmd.Parameters.AddWithValue("@landId", landId);
+
+            using var reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                return new Land
+                {
+                    LandId = (int)reader["LandId"],
+                    Naam = reader["Naam"].ToString()
+                };
+            }
+
+            return null;
+        }
+
         public List<Land> GetAll()
         {
             var landen = new List<Land>();

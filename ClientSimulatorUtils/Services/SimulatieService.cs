@@ -21,18 +21,28 @@ namespace ClientSimulatorUtils.Services
             var achternaamRepo = new AchternaamRepository();
             var gemeenteRepo = new GemeenteRepository();
             var straatRepo = new StraatRepository();
+            var landRepo = new LandRepository();
 
             var voornaamMgr = new VoornaamManager(voornaamRepo);
             var achternaamMgr = new AchternaamManager(achternaamRepo);
             var gemeenteMgr = new GemeenteManager(gemeenteRepo);
             var straatMgr = new StraatManager(straatRepo);
 
-            var persoonMgr = new PersoonManager(voornaamMgr, achternaamMgr, gemeenteMgr, straatMgr);
+            // Haal land naam op
+            var land = landRepo.GetById(landId);
+            var landNaam = land?.Naam ?? "Unknown";
+
+            var persoonRepo = new PersoonRepository();
+            var persoonMgr = new PersoonManager(voornaamMgr, achternaamMgr, gemeenteMgr, straatMgr, persoonRepo);
 
             for (int i = 0; i < aantalKlanten; i++)
             {
                 var persoon = persoonMgr.Genereer(landId, minLeeftijd, maxLeeftijd, opdrachtgever);
+                persoon.Land = landNaam; // Stel correct land in
                 personen.Add(persoon);
+
+                // Sla persoon op in database
+                persoonMgr.Opslaan(persoon);
             }
 
             return personen;

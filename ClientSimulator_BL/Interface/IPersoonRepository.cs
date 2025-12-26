@@ -1,13 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ClientSimulator_BL.Model;
 
 namespace ClientSimulator_BL.Interfaces
 {
     public interface IPersoonRepository
     {
-        // TODO: Add methods as needed
+        void Insert(Persoon persoon);
+
+        // Legacy methods - these should not be used anymore
+        Voornaam GetRandomVoornaam(int landId);
+        Achternaam GetRandomAchternaam(int landId);
+        Gemeente GetRandomGemeente(int landId);
+        Straat GetRandomStraat(int landId);
     }
 }

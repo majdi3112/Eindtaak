@@ -60,20 +60,19 @@ namespace ClientSimulator_DL.Repository
             };
         }
 
-        public bool Exists(int gemeenteId, string naam, string wegtype)
+        public bool Exists(int gemeenteId, string naam)
         {
             using var conn = DbConnectionFactory.Create();
             conn.Open();
 
             var sql = """
                 SELECT COUNT(*) FROM Straat
-                WHERE GemeenteId = @gemeenteId AND Naam = @naam AND HighwayType = @wegtype
+                WHERE GemeenteId = @gemeenteId AND Naam = @naam
             """;
 
             using var cmd = new SqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@gemeenteId", gemeenteId);
             cmd.Parameters.AddWithValue("@naam", naam);
-            cmd.Parameters.AddWithValue("@wegtype", wegtype);
 
             return (int)cmd.ExecuteScalar() > 0;
         }

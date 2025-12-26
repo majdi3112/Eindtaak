@@ -12,5 +12,7 @@ namespace ClientSimulator_BL.Interfaces
     {
         Straat GetRandom(int landId);
         Straat GetRandomByGemeente(int gemeenteId);
+        bool Exists(int gemeenteId, string naam);
+        void Insert(int gemeenteId, string naam, string wegtype);
     }
 }

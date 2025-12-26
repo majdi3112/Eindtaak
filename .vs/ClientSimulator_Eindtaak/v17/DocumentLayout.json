@@ -1,0 +1,757 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{679049EF-9A22-431C-B33F-850F33733DAD}|ClientSimulator_UI\\ClientSimulator_UI.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulator_ui\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{679049EF-9A22-431C-B33F-850F33733DAD}|ClientSimulator_UI\\ClientSimulator_UI.csproj|solutionrelative:clientsimulator_ui\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF89133A-341C-4C62-A319-3A148022B10F}|ClientSimulator_BL\\ClientSimulator_BL.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulator_bl\\model\\gemeente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF89133A-341C-4C62-A319-3A148022B10F}|ClientSimulator_BL\\ClientSimulator_BL.csproj|solutionrelative:clientsimulator_bl\\model\\gemeente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF89133A-341C-4C62-A319-3A148022B10F}|ClientSimulator_BL\\ClientSimulator_BL.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulator_bl\\model\\achternaam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF89133A-341C-4C62-A319-3A148022B10F}|ClientSimulator_BL\\ClientSimulator_BL.csproj|solutionrelative:clientsimulator_bl\\model\\achternaam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF89133A-341C-4C62-A319-3A148022B10F}|ClientSimulator_BL\\ClientSimulator_BL.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulator_bl\\model\\straat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF89133A-341C-4C62-A319-3A148022B10F}|ClientSimulator_BL\\ClientSimulator_BL.csproj|solutionrelative:clientsimulator_bl\\model\\straat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF89133A-341C-4C62-A319-3A148022B10F}|ClientSimulator_BL\\ClientSimulator_BL.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulator_bl\\interface\\istraatrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF89133A-341C-4C62-A319-3A148022B10F}|ClientSimulator_BL\\ClientSimulator_BL.csproj|solutionrelative:clientsimulator_bl\\interface\\istraatrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C91607F1-1568-4F24-85D2-3D70962F5EB3}|ClientSimulatorUtils\\ClientSimulatorUtils.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulatorutils\\repofactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C91607F1-1568-4F24-85D2-3D70962F5EB3}|ClientSimulatorUtils\\ClientSimulatorUtils.csproj|solutionrelative:clientsimulatorutils\\repofactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C91607F1-1568-4F24-85D2-3D70962F5EB3}|ClientSimulatorUtils\\ClientSimulatorUtils.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulatorutils\\datacleaner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C91607F1-1568-4F24-85D2-3D70962F5EB3}|ClientSimulatorUtils\\ClientSimulatorUtils.csproj|solutionrelative:clientsimulatorutils\\datacleaner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D800FCEC-A690-428B-8172-FAD3F44995A9}|ClientSimulator_DL\\ClientSimulator_DL.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulator_dl\\repository\\voornaamrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D800FCEC-A690-428B-8172-FAD3F44995A9}|ClientSimulator_DL\\ClientSimulator_DL.csproj|solutionrelative:clientsimulator_dl\\repository\\voornaamrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D800FCEC-A690-428B-8172-FAD3F44995A9}|ClientSimulator_DL\\ClientSimulator_DL.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulator_dl\\repository\\straatrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D800FCEC-A690-428B-8172-FAD3F44995A9}|ClientSimulator_DL\\ClientSimulator_DL.csproj|solutionrelative:clientsimulator_dl\\repository\\straatrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D800FCEC-A690-428B-8172-FAD3F44995A9}|ClientSimulator_DL\\ClientSimulator_DL.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulator_dl\\repository\\straatimportrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D800FCEC-A690-428B-8172-FAD3F44995A9}|ClientSimulator_DL\\ClientSimulator_DL.csproj|solutionrelative:clientsimulator_dl\\repository\\straatimportrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D800FCEC-A690-428B-8172-FAD3F44995A9}|ClientSimulator_DL\\ClientSimulator_DL.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulator_dl\\repository\\persoonrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D800FCEC-A690-428B-8172-FAD3F44995A9}|ClientSimulator_DL\\ClientSimulator_DL.csproj|solutionrelative:clientsimulator_dl\\repository\\persoonrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D800FCEC-A690-428B-8172-FAD3F44995A9}|ClientSimulator_DL\\ClientSimulator_DL.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulator_dl\\repository\\landrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D800FCEC-A690-428B-8172-FAD3F44995A9}|ClientSimulator_DL\\ClientSimulator_DL.csproj|solutionrelative:clientsimulator_dl\\repository\\landrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D800FCEC-A690-428B-8172-FAD3F44995A9}|ClientSimulator_DL\\ClientSimulator_DL.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulator_dl\\repository\\gemeenterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D800FCEC-A690-428B-8172-FAD3F44995A9}|ClientSimulator_DL\\ClientSimulator_DL.csproj|solutionrelative:clientsimulator_dl\\repository\\gemeenterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D800FCEC-A690-428B-8172-FAD3F44995A9}|ClientSimulator_DL\\ClientSimulator_DL.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulator_dl\\repository\\achternaamrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D800FCEC-A690-428B-8172-FAD3F44995A9}|ClientSimulator_DL\\ClientSimulator_DL.csproj|solutionrelative:clientsimulator_dl\\repository\\achternaamrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D800FCEC-A690-428B-8172-FAD3F44995A9}|ClientSimulator_DL\\ClientSimulator_DL.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulator_dl\\db\\dbconnectionfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D800FCEC-A690-428B-8172-FAD3F44995A9}|ClientSimulator_DL\\ClientSimulator_DL.csproj|solutionrelative:clientsimulator_dl\\db\\dbconnectionfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C91607F1-1568-4F24-85D2-3D70962F5EB3}|ClientSimulatorUtils\\ClientSimulatorUtils.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulatorutils\\csvreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C91607F1-1568-4F24-85D2-3D70962F5EB3}|ClientSimulatorUtils\\ClientSimulatorUtils.csproj|solutionrelative:clientsimulatorutils\\csvreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C91607F1-1568-4F24-85D2-3D70962F5EB3}|ClientSimulatorUtils\\ClientSimulatorUtils.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulatorutils\\clientsimulatorutils.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{C91607F1-1568-4F24-85D2-3D70962F5EB3}|ClientSimulatorUtils\\ClientSimulatorUtils.csproj|solutionrelative:clientsimulatorutils\\clientsimulatorutils.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF89133A-341C-4C62-A319-3A148022B10F}|ClientSimulator_BL\\ClientSimulator_BL.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulator_bl\\clientsimulator_bl.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{AF89133A-341C-4C62-A319-3A148022B10F}|ClientSimulator_BL\\ClientSimulator_BL.csproj|solutionrelative:clientsimulator_bl\\clientsimulator_bl.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF89133A-341C-4C62-A319-3A148022B10F}|ClientSimulator_BL\\ClientSimulator_BL.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulator_bl\\model\\voornaam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF89133A-341C-4C62-A319-3A148022B10F}|ClientSimulator_BL\\ClientSimulator_BL.csproj|solutionrelative:clientsimulator_bl\\model\\voornaam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF89133A-341C-4C62-A319-3A148022B10F}|ClientSimulator_BL\\ClientSimulator_BL.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulator_bl\\model\\persoon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF89133A-341C-4C62-A319-3A148022B10F}|ClientSimulator_BL\\ClientSimulator_BL.csproj|solutionrelative:clientsimulator_bl\\model\\persoon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF89133A-341C-4C62-A319-3A148022B10F}|ClientSimulator_BL\\ClientSimulator_BL.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulator_bl\\manager\\voornaammanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF89133A-341C-4C62-A319-3A148022B10F}|ClientSimulator_BL\\ClientSimulator_BL.csproj|solutionrelative:clientsimulator_bl\\manager\\voornaammanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF89133A-341C-4C62-A319-3A148022B10F}|ClientSimulator_BL\\ClientSimulator_BL.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulator_bl\\manager\\straatmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF89133A-341C-4C62-A319-3A148022B10F}|ClientSimulator_BL\\ClientSimulator_BL.csproj|solutionrelative:clientsimulator_bl\\manager\\straatmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF89133A-341C-4C62-A319-3A148022B10F}|ClientSimulator_BL\\ClientSimulator_BL.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulator_bl\\manager\\persoonmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF89133A-341C-4C62-A319-3A148022B10F}|ClientSimulator_BL\\ClientSimulator_BL.csproj|solutionrelative:clientsimulator_bl\\manager\\persoonmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF89133A-341C-4C62-A319-3A148022B10F}|ClientSimulator_BL\\ClientSimulator_BL.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulator_bl\\manager\\gemeentemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF89133A-341C-4C62-A319-3A148022B10F}|ClientSimulator_BL\\ClientSimulator_BL.csproj|solutionrelative:clientsimulator_bl\\manager\\gemeentemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF89133A-341C-4C62-A319-3A148022B10F}|ClientSimulator_BL\\ClientSimulator_BL.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulator_bl\\manager\\achternaammanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF89133A-341C-4C62-A319-3A148022B10F}|ClientSimulator_BL\\ClientSimulator_BL.csproj|solutionrelative:clientsimulator_bl\\manager\\achternaammanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF89133A-341C-4C62-A319-3A148022B10F}|ClientSimulator_BL\\ClientSimulator_BL.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulator_bl\\interface\\ivoornaamrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF89133A-341C-4C62-A319-3A148022B10F}|ClientSimulator_BL\\ClientSimulator_BL.csproj|solutionrelative:clientsimulator_bl\\interface\\ivoornaamrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF89133A-341C-4C62-A319-3A148022B10F}|ClientSimulator_BL\\ClientSimulator_BL.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulator_bl\\interface\\igemeenterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF89133A-341C-4C62-A319-3A148022B10F}|ClientSimulator_BL\\ClientSimulator_BL.csproj|solutionrelative:clientsimulator_bl\\interface\\igemeenterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF89133A-341C-4C62-A319-3A148022B10F}|ClientSimulator_BL\\ClientSimulator_BL.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulator_bl\\interface\\iachternaamrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF89133A-341C-4C62-A319-3A148022B10F}|ClientSimulator_BL\\ClientSimulator_BL.csproj|solutionrelative:clientsimulator_bl\\interface\\iachternaamrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{888BA466-8D62-4363-AD47-8873497B4C6C}|ClientSimulatorUpload\\ClientSimulatorUpload.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulatorupload\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{888BA466-8D62-4363-AD47-8873497B4C6C}|ClientSimulatorUpload\\ClientSimulatorUpload.csproj|solutionrelative:clientsimulatorupload\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{888BA466-8D62-4363-AD47-8873497B4C6C}|ClientSimulatorUpload\\ClientSimulatorUpload.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulatorupload\\finlandimport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{888BA466-8D62-4363-AD47-8873497B4C6C}|ClientSimulatorUpload\\ClientSimulatorUpload.csproj|solutionrelative:clientsimulatorupload\\finlandimport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{888BA466-8D62-4363-AD47-8873497B4C6C}|ClientSimulatorUpload\\ClientSimulatorUpload.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulatorupload\\belgiumimporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{888BA466-8D62-4363-AD47-8873497B4C6C}|ClientSimulatorUpload\\ClientSimulatorUpload.csproj|solutionrelative:clientsimulatorupload\\belgiumimporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C91607F1-1568-4F24-85D2-3D70962F5EB3}|ClientSimulatorUtils\\ClientSimulatorUtils.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulatorutils\\importvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C91607F1-1568-4F24-85D2-3D70962F5EB3}|ClientSimulatorUtils\\ClientSimulatorUtils.csproj|solutionrelative:clientsimulatorutils\\importvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C91607F1-1568-4F24-85D2-3D70962F5EB3}|ClientSimulatorUtils\\ClientSimulatorUtils.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulatorutils\\normalizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C91607F1-1568-4F24-85D2-3D70962F5EB3}|ClientSimulatorUtils\\ClientSimulatorUtils.csproj|solutionrelative:clientsimulatorutils\\normalizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{679049EF-9A22-431C-B33F-850F33733DAD}|ClientSimulator_UI\\ClientSimulator_UI.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulator_ui\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{679049EF-9A22-431C-B33F-850F33733DAD}|ClientSimulator_UI\\ClientSimulator_UI.csproj|solutionrelative:clientsimulator_ui\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{888BA466-8D62-4363-AD47-8873497B4C6C}|ClientSimulatorUpload\\ClientSimulatorUpload.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulatorupload\\denmarkimporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{888BA466-8D62-4363-AD47-8873497B4C6C}|ClientSimulatorUpload\\ClientSimulatorUpload.csproj|solutionrelative:clientsimulatorupload\\denmarkimporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C91607F1-1568-4F24-85D2-3D70962F5EB3}|ClientSimulatorUtils\\ClientSimulatorUtils.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulatorutils\\txtreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C91607F1-1568-4F24-85D2-3D70962F5EB3}|ClientSimulatorUtils\\ClientSimulatorUtils.csproj|solutionrelative:clientsimulatorutils\\txtreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C91607F1-1568-4F24-85D2-3D70962F5EB3}|ClientSimulatorUtils\\ClientSimulatorUtils.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulatorutils\\jsonreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C91607F1-1568-4F24-85D2-3D70962F5EB3}|ClientSimulatorUtils\\ClientSimulatorUtils.csproj|solutionrelative:clientsimulatorutils\\jsonreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{888BA466-8D62-4363-AD47-8873497B4C6C}|ClientSimulatorUpload\\ClientSimulatorUpload.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulatorupload\\tsjechi\u00EBimporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{888BA466-8D62-4363-AD47-8873497B4C6C}|ClientSimulatorUpload\\ClientSimulatorUpload.csproj|solutionrelative:clientsimulatorupload\\tsjechi\u00EBimporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{888BA466-8D62-4363-AD47-8873497B4C6C}|ClientSimulatorUpload\\ClientSimulatorUpload.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulatorupload\\switzerlandimporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{888BA466-8D62-4363-AD47-8873497B4C6C}|ClientSimulatorUpload\\ClientSimulatorUpload.csproj|solutionrelative:clientsimulatorupload\\switzerlandimporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{888BA466-8D62-4363-AD47-8873497B4C6C}|ClientSimulatorUpload\\ClientSimulatorUpload.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulatorupload\\swedenimport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{888BA466-8D62-4363-AD47-8873497B4C6C}|ClientSimulatorUpload\\ClientSimulatorUpload.csproj|solutionrelative:clientsimulatorupload\\swedenimport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{888BA466-8D62-4363-AD47-8873497B4C6C}|ClientSimulatorUpload\\ClientSimulatorUpload.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulatorupload\\spainimporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{888BA466-8D62-4363-AD47-8873497B4C6C}|ClientSimulatorUpload\\ClientSimulatorUpload.csproj|solutionrelative:clientsimulatorupload\\spainimporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{888BA466-8D62-4363-AD47-8873497B4C6C}|ClientSimulatorUpload\\ClientSimulatorUpload.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulatorupload\\polandimport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{888BA466-8D62-4363-AD47-8873497B4C6C}|ClientSimulatorUpload\\ClientSimulatorUpload.csproj|solutionrelative:clientsimulatorupload\\polandimport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C91607F1-1568-4F24-85D2-3D70962F5EB3}|ClientSimulatorUtils\\ClientSimulatorUtils.csproj|c:\\users\\hp\\source\\repos\\clientsimulator_eindtaak\\clientsimulatorutils\\clientsimulatorutils.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{C91607F1-1568-4F24-85D2-3D70962F5EB3}|ClientSimulatorUtils\\ClientSimulatorUtils.csproj|solutionrelative:clientsimulatorutils\\clientsimulatorutils.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\hp\\source\\repos\\ClientSimulator\\ClientSimulatorBL\\Class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 9,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Straat.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_BL\\Model\\Straat.cs",
+              "RelativeDocumentMoniker": "ClientSimulator_BL\\Model\\Straat.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_BL\\Model\\Straat.cs",
+              "RelativeToolTip": "ClientSimulator_BL\\Model\\Straat.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-24T17:23:42.741Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Achternaam.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_BL\\Model\\Achternaam.cs",
+              "RelativeDocumentMoniker": "ClientSimulator_BL\\Model\\Achternaam.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_BL\\Model\\Achternaam.cs",
+              "RelativeToolTip": "ClientSimulator_BL\\Model\\Achternaam.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-24T17:22:35.579Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Gemeente.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_BL\\Model\\Gemeente.cs",
+              "RelativeDocumentMoniker": "ClientSimulator_BL\\Model\\Gemeente.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_BL\\Model\\Gemeente.cs",
+              "RelativeToolTip": "ClientSimulator_BL\\Model\\Gemeente.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-24T17:22:53.518Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_UI\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "ClientSimulator_UI\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_UI\\MainWindow.xaml.cs",
+              "RelativeToolTip": "ClientSimulator_UI\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-24T16:51:52.777Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IStraatRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_BL\\Interface\\IStraatRepository.cs",
+              "RelativeDocumentMoniker": "ClientSimulator_BL\\Interface\\IStraatRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_BL\\Interface\\IStraatRepository.cs",
+              "RelativeToolTip": "ClientSimulator_BL\\Interface\\IStraatRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-25T18:42:53.222Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{007a3a6b-b5b2-454d-a2bd-cf929f989be2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RepoFactory.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulatorUtils\\RepoFactory.cs",
+              "RelativeDocumentMoniker": "ClientSimulatorUtils\\RepoFactory.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulatorUtils\\RepoFactory.cs",
+              "RelativeToolTip": "ClientSimulatorUtils\\RepoFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-24T18:05:18.883Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DataCleaner.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulatorUtils\\DataCleaner.cs",
+              "RelativeDocumentMoniker": "ClientSimulatorUtils\\DataCleaner.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulatorUtils\\DataCleaner.cs",
+              "RelativeToolTip": "ClientSimulatorUtils\\DataCleaner.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAcwDsAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T19:48:30.974Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "VoornaamRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_DL\\Repository\\VoornaamRepository.cs",
+              "RelativeDocumentMoniker": "ClientSimulator_DL\\Repository\\VoornaamRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_DL\\Repository\\VoornaamRepository.cs",
+              "RelativeToolTip": "ClientSimulator_DL\\Repository\\VoornaamRepository.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAQwE0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T16:35:42.51Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "StraatRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_DL\\Repository\\StraatRepository.cs",
+              "RelativeDocumentMoniker": "ClientSimulator_DL\\Repository\\StraatRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_DL\\Repository\\StraatRepository.cs",
+              "RelativeToolTip": "ClientSimulator_DL\\Repository\\StraatRepository.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T16:35:50.649Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "StraatImportRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_DL\\Repository\\StraatImportRepository.cs",
+              "RelativeDocumentMoniker": "ClientSimulator_DL\\Repository\\StraatImportRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_DL\\Repository\\StraatImportRepository.cs",
+              "RelativeToolTip": "ClientSimulator_DL\\Repository\\StraatImportRepository.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAAC4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-25T19:09:23.279Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "PersoonRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_DL\\Repository\\PersoonRepository.cs",
+              "RelativeDocumentMoniker": "ClientSimulator_DL\\Repository\\PersoonRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_DL\\Repository\\PersoonRepository.cs",
+              "RelativeToolTip": "ClientSimulator_DL\\Repository\\PersoonRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-24T18:02:22.498Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "LandRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_DL\\Repository\\LandRepository.cs",
+              "RelativeDocumentMoniker": "ClientSimulator_DL\\Repository\\LandRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_DL\\Repository\\LandRepository.cs",
+              "RelativeToolTip": "ClientSimulator_DL\\Repository\\LandRepository.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAACUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T16:36:12.279Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "GemeenteRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_DL\\Repository\\GemeenteRepository.cs",
+              "RelativeDocumentMoniker": "ClientSimulator_DL\\Repository\\GemeenteRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_DL\\Repository\\GemeenteRepository.cs",
+              "RelativeToolTip": "ClientSimulator_DL\\Repository\\GemeenteRepository.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAACcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T16:36:21.269Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "AchternaamRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_DL\\Repository\\AchternaamRepository.cs",
+              "RelativeDocumentMoniker": "ClientSimulator_DL\\Repository\\AchternaamRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_DL\\Repository\\AchternaamRepository.cs",
+              "RelativeToolTip": "ClientSimulator_DL\\Repository\\AchternaamRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T16:36:30.067Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "DbConnectionFactory.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_DL\\DB\\DbConnectionFactory.cs",
+              "RelativeDocumentMoniker": "ClientSimulator_DL\\DB\\DbConnectionFactory.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_DL\\DB\\DbConnectionFactory.cs",
+              "RelativeToolTip": "ClientSimulator_DL\\DB\\DbConnectionFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-22T15:07:22.297Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "CsvReader.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulatorUtils\\CsvReader.cs",
+              "RelativeDocumentMoniker": "ClientSimulatorUtils\\CsvReader.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulatorUtils\\CsvReader.cs",
+              "RelativeToolTip": "ClientSimulatorUtils\\CsvReader.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T01:24:50.668Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ClientSimulatorUtils",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulatorUtils\\ClientSimulatorUtils.csproj",
+              "RelativeDocumentMoniker": "ClientSimulatorUtils\\ClientSimulatorUtils.csproj",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulatorUtils\\ClientSimulatorUtils.csproj",
+              "RelativeToolTip": "ClientSimulatorUtils\\ClientSimulatorUtils.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-12-26T10:10:22.567Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ClientSimulator_BL",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_BL\\ClientSimulator_BL.csproj",
+              "RelativeDocumentMoniker": "ClientSimulator_BL\\ClientSimulator_BL.csproj",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_BL\\ClientSimulator_BL.csproj",
+              "RelativeToolTip": "ClientSimulator_BL\\ClientSimulator_BL.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-12-26T10:10:36.26Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Persoon.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_BL\\Model\\Persoon.cs",
+              "RelativeDocumentMoniker": "ClientSimulator_BL\\Model\\Persoon.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_BL\\Model\\Persoon.cs",
+              "RelativeToolTip": "ClientSimulator_BL\\Model\\Persoon.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-24T17:21:48.448Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Voornaam.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_BL\\Model\\Voornaam.cs",
+              "RelativeDocumentMoniker": "ClientSimulator_BL\\Model\\Voornaam.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_BL\\Model\\Voornaam.cs",
+              "RelativeToolTip": "ClientSimulator_BL\\Model\\Voornaam.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-24T17:22:15.44Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "VoornaamManager.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_BL\\Manager\\VoornaamManager.cs",
+              "RelativeDocumentMoniker": "ClientSimulator_BL\\Manager\\VoornaamManager.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_BL\\Manager\\VoornaamManager.cs",
+              "RelativeToolTip": "ClientSimulator_BL\\Manager\\VoornaamManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-24T17:15:09.258Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "StraatManager.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_BL\\Manager\\StraatManager.cs",
+              "RelativeDocumentMoniker": "ClientSimulator_BL\\Manager\\StraatManager.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_BL\\Manager\\StraatManager.cs",
+              "RelativeToolTip": "ClientSimulator_BL\\Manager\\StraatManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-24T17:15:07.547Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "PersoonManager.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_BL\\Manager\\PersoonManager.cs",
+              "RelativeDocumentMoniker": "ClientSimulator_BL\\Manager\\PersoonManager.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_BL\\Manager\\PersoonManager.cs",
+              "RelativeToolTip": "ClientSimulator_BL\\Manager\\PersoonManager.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-24T17:14:43.805Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "GemeenteManager.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_BL\\Manager\\GemeenteManager.cs",
+              "RelativeDocumentMoniker": "ClientSimulator_BL\\Manager\\GemeenteManager.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_BL\\Manager\\GemeenteManager.cs",
+              "RelativeToolTip": "ClientSimulator_BL\\Manager\\GemeenteManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-24T17:15:14.855Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "AchternaamManager.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_BL\\Manager\\AchternaamManager.cs",
+              "RelativeDocumentMoniker": "ClientSimulator_BL\\Manager\\AchternaamManager.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_BL\\Manager\\AchternaamManager.cs",
+              "RelativeToolTip": "ClientSimulator_BL\\Manager\\AchternaamManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-24T17:17:04.093Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "IVoornaamRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_BL\\Interface\\IVoornaamRepository.cs",
+              "RelativeDocumentMoniker": "ClientSimulator_BL\\Interface\\IVoornaamRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_BL\\Interface\\IVoornaamRepository.cs",
+              "RelativeToolTip": "ClientSimulator_BL\\Interface\\IVoornaamRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-25T18:37:49.162Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "IGemeenteRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_BL\\Interface\\IGemeenteRepository.cs",
+              "RelativeDocumentMoniker": "ClientSimulator_BL\\Interface\\IGemeenteRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_BL\\Interface\\IGemeenteRepository.cs",
+              "RelativeToolTip": "ClientSimulator_BL\\Interface\\IGemeenteRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-25T18:38:37.378Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "IAchternaamRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_BL\\Interface\\IAchternaamRepository.cs",
+              "RelativeDocumentMoniker": "ClientSimulator_BL\\Interface\\IAchternaamRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_BL\\Interface\\IAchternaamRepository.cs",
+              "RelativeToolTip": "ClientSimulator_BL\\Interface\\IAchternaamRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-24T18:10:30.585Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulatorUpload\\Program.cs",
+              "RelativeDocumentMoniker": "ClientSimulatorUpload\\Program.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulatorUpload\\Program.cs",
+              "RelativeToolTip": "ClientSimulatorUpload\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-22T15:25:00.216Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "FinlandImport.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulatorUpload\\FinlandImport.cs",
+              "RelativeDocumentMoniker": "ClientSimulatorUpload\\FinlandImport.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulatorUpload\\FinlandImport.cs",
+              "RelativeToolTip": "ClientSimulatorUpload\\FinlandImport.cs",
+              "ViewState": "AgIAAJsAAAAAAAAAAAAmwLUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-22T15:14:21.215Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "BelgiumImporter.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulatorUpload\\BelgiumImporter.cs",
+              "RelativeDocumentMoniker": "ClientSimulatorUpload\\BelgiumImporter.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulatorUpload\\BelgiumImporter.cs",
+              "RelativeToolTip": "ClientSimulatorUpload\\BelgiumImporter.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAowD8AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-22T15:07:09.752Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "ImportValidator.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulatorUtils\\ImportValidator.cs",
+              "RelativeDocumentMoniker": "ClientSimulatorUtils\\ImportValidator.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulatorUtils\\ImportValidator.cs",
+              "RelativeToolTip": "ClientSimulatorUtils\\ImportValidator.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAcwDIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T19:49:46.712Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Normalizer.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulatorUtils\\Normalizer.cs",
+              "RelativeDocumentMoniker": "ClientSimulatorUtils\\Normalizer.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulatorUtils\\Normalizer.cs",
+              "RelativeToolTip": "ClientSimulatorUtils\\Normalizer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T17:14:55.77Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_UI\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "ClientSimulator_UI\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulator_UI\\MainWindow.xaml",
+              "RelativeToolTip": "ClientSimulator_UI\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-12-24T16:51:54.615Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "DenmarkImporter.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulatorUpload\\DenmarkImporter.cs",
+              "RelativeDocumentMoniker": "ClientSimulatorUpload\\DenmarkImporter.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulatorUpload\\DenmarkImporter.cs",
+              "RelativeToolTip": "ClientSimulatorUpload\\DenmarkImporter.cs",
+              "ViewState": "AgIAAI8AAAAAAAAAAAAnwHEAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-22T15:08:35.507Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "JsonReader.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulatorUtils\\JsonReader.cs",
+              "RelativeDocumentMoniker": "ClientSimulatorUtils\\JsonReader.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulatorUtils\\JsonReader.cs",
+              "RelativeToolTip": "ClientSimulatorUtils\\JsonReader.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAcwCUAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T19:50:30.452Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "TxtReader.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulatorUtils\\TxtReader.cs",
+              "RelativeDocumentMoniker": "ClientSimulatorUtils\\TxtReader.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulatorUtils\\TxtReader.cs",
+              "RelativeToolTip": "ClientSimulatorUtils\\TxtReader.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAmwDAAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T19:50:39.168Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "Tsjechi\u00EBImporter.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulatorUpload\\Tsjechi\u00EBImporter.cs",
+              "RelativeDocumentMoniker": "ClientSimulatorUpload\\Tsjechi\u00EBImporter.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulatorUpload\\Tsjechi\u00EBImporter.cs",
+              "RelativeToolTip": "ClientSimulatorUpload\\Tsjechi\u00EBImporter.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAowFwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-22T15:24:00.721Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "SwitzerlandImporter.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulatorUpload\\SwitzerlandImporter.cs",
+              "RelativeDocumentMoniker": "ClientSimulatorUpload\\SwitzerlandImporter.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulatorUpload\\SwitzerlandImporter.cs",
+              "RelativeToolTip": "ClientSimulatorUpload\\SwitzerlandImporter.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAewE8AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-22T15:22:32.274Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "SwedenImport.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulatorUpload\\SwedenImport.cs",
+              "RelativeDocumentMoniker": "ClientSimulatorUpload\\SwedenImport.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulatorUpload\\SwedenImport.cs",
+              "RelativeToolTip": "ClientSimulatorUpload\\SwedenImport.cs",
+              "ViewState": "AgIAAIcAAAAAAAAAAAAuwKUAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-22T15:21:29.882Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "SpainImporter.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulatorUpload\\SpainImporter.cs",
+              "RelativeDocumentMoniker": "ClientSimulatorUpload\\SpainImporter.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulatorUpload\\SpainImporter.cs",
+              "RelativeToolTip": "ClientSimulatorUpload\\SpainImporter.cs",
+              "ViewState": "AgIAAI0AAAAAAAAAAAAmwKgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-22T15:19:42.794Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "PolandImport.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulatorUpload\\PolandImport.cs",
+              "RelativeDocumentMoniker": "ClientSimulatorUpload\\PolandImport.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulatorUpload\\PolandImport.cs",
+              "RelativeToolTip": "ClientSimulatorUpload\\PolandImport.cs",
+              "ViewState": "AgIAAJIAAAAAAAAAAAAmwKkAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-22T15:18:06.653Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "ClientSimulatorUtils.csproj",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulatorUtils\\ClientSimulatorUtils.csproj",
+              "RelativeDocumentMoniker": "ClientSimulatorUtils\\ClientSimulatorUtils.csproj",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator_Eindtaak\\ClientSimulatorUtils\\ClientSimulatorUtils.csproj",
+              "RelativeToolTip": "ClientSimulatorUtils\\ClientSimulatorUtils.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-12-23T19:36:40.357Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\ClientSimulator\\ClientSimulatorBL\\Class1.cs",
+              "RelativeDocumentMoniker": "..\\ClientSimulator\\ClientSimulatorBL\\Class1.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\ClientSimulator\\ClientSimulatorBL\\Class1.cs",
+              "RelativeToolTip": "..\\ClientSimulator\\ClientSimulatorBL\\Class1.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T15:20:56.256Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

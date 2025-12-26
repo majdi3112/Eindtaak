@@ -1,0 +1,357 @@
+﻿<Window x:Class="ClientSimulator_UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Klantensimulator - Eindtaak"
+        Height="800"
+        Width="1200"
+        WindowStartupLocation="CenterScreen"
+        Background="#F5F5F5">
+
+    <TabControl Margin="10" Background="White" BorderBrush="#DDD" BorderThickness="1">
+        <!-- SIMULATIE TAB -->
+        <TabItem Header="📊 Simulatie Uitvoeren" FontSize="14" FontWeight="Bold">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <Grid Margin="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- BASIS INSTELLINGEN -->
+                    <GroupBox Grid.Row="0" Header="Basis Instellingen" Margin="0 0 0 20" Padding="10">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0" Margin="0 0 20 0">
+                                <TextBlock Text="Land:" FontWeight="Bold" Margin="0 0 0 5"/>
+                                <ComboBox x:Name="SimLandComboBox"
+                                         DisplayMemberPath="Naam"
+                                         SelectedValuePath="LandId"
+                                         Height="30"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="1" Margin="0 0 20 0">
+                                <TextBlock Text="Aantal klanten:" FontWeight="Bold" Margin="0 0 0 5"/>
+                                <TextBox x:Name="AantalKlantenTextBox"
+                                        Height="30"
+                                        Text="100"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="2">
+                                <TextBlock Text="Opdrachtgever:" FontWeight="Bold" Margin="0 0 0 5"/>
+                                <TextBox x:Name="OpdrachtgeverTextBox"
+                                        Height="30"
+                                        Text="Test Opdrachtgever"/>
+                            </StackPanel>
+                        </Grid>
+                    </GroupBox>
+
+                    <!-- LEEFTIJD INSTELLINGEN -->
+                    <GroupBox Grid.Row="1" Header="Leeftijd Instellingen" Margin="0 0 0 20" Padding="10">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0" Margin="0 0 20 0">
+                                <TextBlock Text="Minimum leeftijd:" FontWeight="Bold" Margin="0 0 0 5"/>
+                                <TextBox x:Name="MinLeeftijdTextBox"
+                                        Height="30"
+                                        Text="18"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="1">
+                                <TextBlock Text="Maximum leeftijd:" FontWeight="Bold" Margin="0 0 0 5"/>
+                                <TextBox x:Name="MaxLeeftijdTextBox"
+                                        Height="30"
+                                        Text="90"/>
+                            </StackPanel>
+                        </Grid>
+                    </GroupBox>
+
+                    <!-- GEMEENTE SELECTIE -->
+                    <GroupBox Grid.Row="2" Header="Gemeente Selectie (Optioneel)" Margin="0 0 0 20" Padding="10">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <CheckBox x:Name="GemeenteFilterCheckBox"
+                                     Grid.Row="0"
+                                     Content="Specifieke gemeenten selecteren"
+                                     Margin="0 0 0 10"
+                                     Checked="GemeenteFilterCheckBox_Checked"
+                                     Unchecked="GemeenteFilterCheckBox_Checked"/>
+
+                            <ListView x:Name="GemeenteListView"
+                                     Grid.Row="1"
+                                     Height="150"
+                                     IsEnabled="False">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="Gemeente" Width="200" DisplayMemberBinding="{Binding Naam}"/>
+                                        <GridViewColumn Header="Percentage" Width="100">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBox Text="0" Width="80" Height="25"/>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </Grid>
+                    </GroupBox>
+
+                    <!-- HUISNUMMER INSTELLINGEN -->
+                    <GroupBox Grid.Row="3" Header="Huisnummer Instellingen" Margin="0 0 0 20" Padding="10">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0" Margin="0 0 20 0">
+                                <TextBlock Text="Max huisnummer:" FontWeight="Bold" Margin="0 0 0 5"/>
+                                <TextBox x:Name="MaxHuisnummerTextBox"
+                                        Height="30"
+                                        Text="999"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="1" Margin="0 0 20 0">
+                                <TextBlock Text="% met letters:" FontWeight="Bold" Margin="0 0 0 5"/>
+                                <TextBox x:Name="PercentageLettersTextBox"
+                                        Height="30"
+                                        Text="10"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="2">
+                                <TextBlock Text="Busnummer %:" FontWeight="Bold" Margin="0 0 0 5"/>
+                                <TextBox x:Name="BusnummerPercentageTextBox"
+                                        Height="30"
+                                        Text="5"/>
+                            </StackPanel>
+                        </Grid>
+                    </GroupBox>
+
+                    <!-- ACTIES -->
+                    <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 0 0 20">
+                        <Button x:Name="StartSimulatieButton"
+                               Content="🚀 Start Simulatie"
+                               Width="150"
+                               Height="40"
+                               Background="#4CAF50"
+                               Foreground="White"
+                               FontWeight="Bold"
+                               Click="StartSimulatieButton_Click"
+                               Margin="0 0 10 0"/>
+
+                        <Button Content="🔄 Reset"
+                               Width="120"
+                               Height="40"
+                               Background="#FF9800"
+                               Foreground="White"
+                               FontWeight="Bold"
+                               Click="ResetSimulatieButton_Click"/>
+                    </StackPanel>
+
+                    <!-- VOORTGANG -->
+                    <GroupBox Grid.Row="5" Header="Voortgang &amp; Resultaten" Padding="10">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <ProgressBar x:Name="SimulatieProgressBar"
+                                        Grid.Row="0"
+                                        Height="20"
+                                        Margin="0 0 0 10"
+                                        Value="0"
+                                        Maximum="100"/>
+
+                            <TextBox x:Name="SimulatieResultatenTextBox"
+                                    Grid.Row="1"
+                                    IsReadOnly="True"
+                                    VerticalScrollBarVisibility="Auto"
+                                    FontFamily="Consolas"
+                                    FontSize="12"
+                                    Background="#F8F8F8"/>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </ScrollViewer>
+        </TabItem>
+
+        <!-- DATASET BEHEER TAB -->
+        <TabItem Header="📁 Dataset Beheer" FontSize="14" FontWeight="Bold">
+            <Grid Margin="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- ZOEKEN -->
+                <GroupBox Grid.Row="0" Header="Zoeken" Margin="0 0 0 20" Padding="10">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0" Margin="0 0 20 0">
+                            <TextBlock Text="Zoek op land:" FontWeight="Bold" Margin="0 0 0 5"/>
+                            <ComboBox x:Name="ZoekLandComboBox"
+                                     DisplayMemberPath="Naam"
+                                     SelectedValuePath="LandId"
+                                     Height="30"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1" Margin="0 0 20 0">
+                            <TextBlock Text="Of opdrachtgever:" FontWeight="Bold" Margin="0 0 0 5"/>
+                            <TextBox x:Name="ZoekOpdrachtgeverTextBox"
+                                    Height="30"/>
+                        </StackPanel>
+
+                        <Button Grid.Column="2"
+                               Content="🔍 Zoek"
+                               Width="100"
+                               Height="30"
+                               VerticalAlignment="Bottom"
+                               Background="#2196F3"
+                               Foreground="White"
+                               FontWeight="Bold"
+                               Click="ZoekDatasetsButton_Click"/>
+                    </Grid>
+                </GroupBox>
+
+                <!-- DATASETS LIJST -->
+                <GroupBox Grid.Row="1" Header="Gevonden Datasets" Margin="0 0 0 20" Padding="10">
+                    <ListView x:Name="DatasetsListView"
+                             Height="150"
+                             SelectionChanged="DatasetsListView_SelectionChanged">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="ID" Width="60" DisplayMemberBinding="{Binding DatasetId}"/>
+                                <GridViewColumn Header="Land" Width="120" DisplayMemberBinding="{Binding Land}"/>
+                                <GridViewColumn Header="Opdrachtgever" Width="150" DisplayMemberBinding="{Binding Opdrachtgever}"/>
+                                <GridViewColumn Header="Datum" Width="120" DisplayMemberBinding="{Binding AanmaakDatum}"/>
+                                <GridViewColumn Header="Aantal" Width="80" DisplayMemberBinding="{Binding TotaalKlanten}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </GroupBox>
+
+                <!-- STATISTIEKEN -->
+                <GroupBox Grid.Row="2" Header="Dataset Statistieken" Padding="10">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <TextBox x:Name="StatistiekenTextBox"
+                                IsReadOnly="True"
+                                FontFamily="Consolas"
+                                FontSize="11"
+                                Background="#F8F8F8"/>
+                    </ScrollViewer>
+                </GroupBox>
+            </Grid>
+        </TabItem>
+
+        <!-- EXPORT TAB -->
+        <TabItem Header="📤 Export" FontSize="14" FontWeight="Bold">
+            <Grid Margin="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- EXPORT INSTELLINGEN -->
+                <GroupBox Grid.Row="0" Header="Export Instellingen" Margin="0 0 0 20" Padding="10">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0" Margin="0 0 20 0">
+                            <TextBlock Text="Export formaat:" FontWeight="Bold" Margin="0 0 0 10"/>
+                            <RadioButton x:Name="ExportFormat1Radio"
+                                        GroupName="ExportFormat"
+                                        Content="1 tekstbestand (data + statistieken)"
+                                        IsChecked="True"
+                                        Margin="0 0 0 5"/>
+                            <RadioButton x:Name="ExportFormat2Radio"
+                                        GroupName="ExportFormat"
+                                        Content="2 tekstbestanden (apart)"
+                                        Margin="0 0 0 5"/>
+                            <RadioButton x:Name="ExportFormat3Radio"
+                                        GroupName="ExportFormat"
+                                        Content="JSON bestand"
+                                        Margin="0 0 0 5"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1">
+                            <TextBlock Text="Scheidingsteken (voor tekst):" FontWeight="Bold" Margin="0 0 0 5"/>
+                            <ComboBox x:Name="ScheidingstekenComboBox" Height="30">
+                                <ComboBoxItem Content="Puntkomma (;)" IsSelected="True"/>
+                                <ComboBoxItem Content="Komma (,)" />
+                                <ComboBoxItem Content="Tab" />
+                                <ComboBoxItem Content="Pijp (|)" />
+                            </ComboBox>
+
+                            <TextBlock Text="Bestandsnaam:" FontWeight="Bold" Margin="0 20 0 5"/>
+                            <TextBox x:Name="ExportBestandsnaamTextBox"
+                                    Height="30"
+                                    Text="export_dataset"/>
+                        </StackPanel>
+                    </Grid>
+                </GroupBox>
+
+                <!-- EXPORT ACTIES -->
+                <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 0 0 20">
+                    <Button Content="📤 Exporteer Dataset"
+                           Width="160"
+                           Height="40"
+                           Background="#9C27B0"
+                           Foreground="White"
+                           FontWeight="Bold"
+                           Click="ExportDatasetButton_Click"
+                           Margin="0 0 10 0"/>
+
+                    <Button Content="📂 Open Export Map"
+                           Width="140"
+                           Height="40"
+                           Background="#607D8B"
+                           Foreground="White"
+                           FontWeight="Bold"
+                           Click="OpenExportMapButton_Click"/>
+                </StackPanel>
+
+                <!-- EXPORT LOG -->
+                <GroupBox Grid.Row="2" Header="Export Log" Padding="10">
+                    <TextBox x:Name="ExportLogTextBox"
+                            IsReadOnly="True"
+                            VerticalScrollBarVisibility="Auto"
+                            FontFamily="Consolas"
+                            FontSize="11"
+                            Background="#F8F8F8"/>
+                </GroupBox>
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>

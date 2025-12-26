@@ -1,0 +1,11 @@
+C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulator_BL\bin\Debug\net9.0\ClientSimulator_BL.deps.json
+C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulator_BL\bin\Debug\net9.0\ClientSimulator_BL.dll
+C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulator_BL\bin\Debug\net9.0\ClientSimulator_BL.pdb
+C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulator_BL\obj\Debug\net9.0\ClientSimulator_BL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulator_BL\obj\Debug\net9.0\ClientSimulator_BL.AssemblyInfoInputs.cache
+C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulator_BL\obj\Debug\net9.0\ClientSimulator_BL.AssemblyInfo.cs
+C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulator_BL\obj\Debug\net9.0\ClientSimulator_BL.csproj.CoreCompileInputs.cache
+C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulator_BL\obj\Debug\net9.0\ClientSimulator_BL.dll
+C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulator_BL\obj\Debug\net9.0\refint\ClientSimulator_BL.dll
+C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulator_BL\obj\Debug\net9.0\ClientSimulator_BL.pdb
+C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulator_BL\obj\Debug\net9.0\ref\ClientSimulator_BL.dll

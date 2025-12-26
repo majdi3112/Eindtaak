@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ClientSimulator_BL\ClientSimulator_BL.csproj" />
+    <ProjectReference Include="..\ClientSimulator_DL\ClientSimulator_DL.csproj" />
+    <ProjectReference Include="..\ClientSimulatorUtils\ClientSimulatorUtils.csproj" />
+  </ItemGroup>
+
+</Project>

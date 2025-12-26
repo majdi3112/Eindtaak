@@ -1,0 +1,17 @@
+C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulatorUtils\obj\Debug\net8.0\ClientSimulatorUtils.csproj.AssemblyReference.cache
+C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulatorUtils\obj\Debug\net8.0\ClientSimulatorUtils.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulatorUtils\obj\Debug\net8.0\ClientSimulatorUtils.AssemblyInfoInputs.cache
+C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulatorUtils\obj\Debug\net8.0\ClientSimulatorUtils.AssemblyInfo.cs
+C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulatorUtils\obj\Debug\net8.0\ClientSimulatorUtils.csproj.CoreCompileInputs.cache
+C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulatorUtils\bin\Debug\net8.0\ClientSimulatorUtils.deps.json
+C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulatorUtils\bin\Debug\net8.0\ClientSimulatorUtils.dll
+C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulatorUtils\bin\Debug\net8.0\ClientSimulatorUtils.pdb
+C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulatorUtils\bin\Debug\net8.0\ClientSimulator_BL.dll
+C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulatorUtils\bin\Debug\net8.0\ClientSimulator_DL.dll
+C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulatorUtils\bin\Debug\net8.0\ClientSimulator_BL.pdb
+C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulatorUtils\bin\Debug\net8.0\ClientSimulator_DL.pdb
+C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulatorUtils\obj\Debug\net8.0\ClientSi.1665D387.Up2Date
+C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulatorUtils\obj\Debug\net8.0\ClientSimulatorUtils.dll
+C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulatorUtils\obj\Debug\net8.0\refint\ClientSimulatorUtils.dll
+C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulatorUtils\obj\Debug\net8.0\ClientSimulatorUtils.pdb
+C:\Users\hp\source\repos\ClientSimulator_Eindtaak\ClientSimulatorUtils\obj\Debug\net8.0\ref\ClientSimulatorUtils.dll

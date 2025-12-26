@@ -131,7 +131,7 @@ namespace ClientSimulatorUpload
                     // Gebruik een standaard wegtype voor Tsjechië
                     string wegtype = "residential";
 
-                    if (!_straatRepo.Exists(dummyGemeenteId, clean, wegtype))
+                    if (!_straatRepo.Exists(dummyGemeenteId, clean))
                     {
                         _straatRepo.Insert(dummyGemeenteId, clean, wegtype);
                         success++;

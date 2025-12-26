@@ -182,7 +182,7 @@ namespace ClientSimulatorUpload
 
                     int gemeenteId = _gemeenteRepo.InsertOfOphalen(gemeente, _landId);
 
-                    if (_straatRepo.Exists(gemeenteId, straat, wegtype)) { overgeslagen++; continue; }
+                    if (_straatRepo.Exists(gemeenteId, straat)) { overgeslagen++; continue; }
 
                     _straatRepo.Insert(gemeenteId, straat, wegtype);
                     toegevoegd++;

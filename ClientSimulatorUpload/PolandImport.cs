@@ -148,7 +148,7 @@ namespace ClientSimulatorUpload
                     int gemeenteId = _gemeenteRepo.InsertOfOphalen(gemeente, _landId);
 
                     // duplicate check
-                    if (_straatRepo.Exists(gemeenteId, straat, wegtype))
+                    if (_straatRepo.Exists(gemeenteId, straat))
                         continue;
 
                     _straatRepo.Insert(gemeenteId, straat, wegtype);

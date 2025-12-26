@@ -6,7 +6,6 @@ namespace ClientSimulator_DL.Db
     {
         private static readonly string _connectionString =
             "Data Source=DESKTOP-S1KV2PJ\\SQLEXPRESS;Initial Catalog=ClientSimulatorDB;Integrated Security=True;Trust Server Certificate=True";
-
         public static SqlConnection Create()
         {
             return new SqlConnection(_connectionString);

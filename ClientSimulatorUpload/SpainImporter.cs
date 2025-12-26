@@ -62,7 +62,7 @@ namespace ClientSimulatorUpload
             int overgeslagen = 0;
             int fouten = 0;
 
-            foreach (var parts in TxtReader.ReadTabSeparated(path))
+            foreach (var parts in TxtReader.ReadSpaceSeparated(path))
             {
                 try
                 {
@@ -111,7 +111,7 @@ namespace ClientSimulatorUpload
             int overgeslagen = 0;
             int fouten = 0;
 
-            foreach (var parts in TxtReader.ReadTabSeparated(path))
+            foreach (var parts in TxtReader.ReadSpaceSeparated(path))
             {
                 try
                 {

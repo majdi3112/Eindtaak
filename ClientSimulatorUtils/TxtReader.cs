@@ -70,7 +70,10 @@ namespace ClientSimulatorUtils
                     cleaned.Contains("Edad Media") ||
                     cleaned.Contains("Lukumäärä") ||
                     cleaned.Contains("Medelålder") ||
-                    cleaned.Contains("ANTAL"))
+                    cleaned.Contains("ANTAL") ||
+                    cleaned.Contains("januar") ||
+                    cleaned.Contains("forekomster") ||
+                    cleaned.Contains("flere"))
                     continue;
 
                 // Split on tabs
